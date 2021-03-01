@@ -9,13 +9,13 @@
 </head>
 <body>
 
-@include('web.layouts.header')
+@include('layouts.header')
 
 <main class="">
 @yield('content')
 @yield('modal')
 </main>
-@include('web.layouts.footer')
+@include('layouts.footer')
 
 
 <script src="{{asset('assets/bootstrap5/js/bootstrap.bundle.min.js') }}"></script>

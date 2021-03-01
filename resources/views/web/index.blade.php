@@ -1,4 +1,4 @@
-@extends('web.layouts.layout') @section('content')
+@extends('layouts.layout') @section('content')
 
 <h2>hi</h2>
 
