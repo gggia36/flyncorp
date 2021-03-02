@@ -1,0 +1,133 @@
+@charset "UTF-8";
+h1, h2, h3, h4, h5, h6, [class^='heading-'] {
+    margin-top: 0;
+    margin-bottom: 0;
+  	/*font-family: 'majesti_bannerlight';*/
+  	font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+body {
+	margin-top: 0;
+    margin-bottom: 0;
+  	/*font-family: 'majesti_bannerlight';*/
+  	font-family: 'Roboto', sans-serif;
+}
+
+
+body {
+  padding-top: 56px;
+}
+ul {
+    list-style-type: none;
+}
+
+/*------------------------------------navbar--------------------------------------*/
+
+.navbar {
+  background-color: #fff;
+  transition: background-image 0.5s;
+}
+.nav-item .nav-link {
+	color: #000;	
+}
+.slanted {
+	display: inline-block;
+	-webkit-transform: rotate(-18deg);
+	-moz-transform: rotate(-18deg);
+	-o-transform: rotate(-18deg);
+	-ms-transform: rotate(-18deg);
+	transform: rotate(-18deg);
+}
+.modal .modal-dialog-aside{
+	width: 320px;
+	max-width:80%; height: 100%; margin:0;
+	transform: translate(0); transition: transform .2s;	
+}
+.modal .modal-dialog-aside .modal-content{  height: inherit; border:0; border-radius: 0;}
+.modal .modal-dialog-aside .modal-content .modal-body{ overflow-y: auto }
+.modal.fixed-right .modal-dialog-aside{ margin-right:auto; transform: translateX(-100%); } 
+
+.modal.show .modal-dialog-aside{ transform: translateX(0);  }
+
+.modal-content .modal-header {
+  height: 59px;
+  background-color: #7952b3;
+  position: relative;
+  border-radius: 0;
+}
+.modal-content .modal-header .text {
+  height: 56px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0;
+  font-size: 16px;
+  padding: 8px 0;
+  color: #fff;
+}
+.modal-content .modal-header .text .field {
+  padding-left: 15px;
+  font-size: 19px;
+ } 
+.modal-content .modal-header .text .field .name {
+  font-weight: normal;
+}
+.modal-body .menu {
+	padding-left: 0px;
+}
+/* navbar hide on scroll down */
+.nav-up {
+    top: -80px;
+}
+.navbar{
+   transition: top 0.5s ease-in-out;
+   padding: .5rem 2rem;
+   font-family: 'majesti_bannerlight';
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    font-family: 'majesti_bannerlight';
+}
+
+
+/*------------------------------------ end navbar--------------------------------------*/
+
+.fix-font{
+  font-family: 'majesti_bannerlight';
+}
+
+.center-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+}
+
+#bg-section1{
+	background-image: url("../image/logo/aboutus_bg.jpg");
+	background-size: auto;
+    min-height: 798px;
+}
+
+.text-blue{
+	color: #135C94;
+}
+.text-green{
+	color: #77C2AB
+}
+.f-14{
+	font-size: 14px;
+}
+.h-122{
+	height: 120px;
+}
+.p-30{
+	padding: 30px;
+}
