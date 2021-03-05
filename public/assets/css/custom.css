@@ -52,9 +52,21 @@ ul {
 
 .modal-content .modal-header {
   height: 59px;
-  background-color: #7952b3;
+  background-color: #fffff;
   position: relative;
   border-radius: 0;
+}
+.modal-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: 0px solid #dee2e6 !important!;
+    /* border-top-left-radius: calc(.3rem - 1px); */
+    /* border-top-right-radius: calc(.3rem - 1px); */
 }
 .modal-content .modal-header .text {
   height: 56px;
@@ -115,12 +127,18 @@ ul {
 	background-size: auto;
     min-height: 798px;
 }
+.f-30{
+  font-size: 30px;
+}
 
 .text-blue{
 	color: #135C94;
 }
 .text-green{
 	color: #77C2AB
+}
+.text-green{
+  color: #77c2ab;
 }
 .f-14{
 	font-size: 14px;
@@ -131,3 +149,83 @@ ul {
 .p-30{
 	padding: 30px;
 }
+#Rectangle_5 {
+    fill: rgba(19,92,148,1);
+}
+.Rectangle_5 {
+  position: absolute;
+  overflow: visible;
+  width: 1px;
+  height: 173px;
+  left: 221px;
+  top: 0px;
+}
+#Successful1 {
+ /*    position: absolute;
+    overflow: visible;
+    white-space: nowrap;
+    text-align: center; */
+    font-family: Majesti Banner;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    color: rgba(19,92,148,1);
+    letter-spacing: 1px;
+}
+#Successful2 {
+  /* left: 1px; */
+  /* top: 105px; */
+  /* position: absolute; */
+  overflow: visible;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Majesti Banner;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  color: rgba(19,92,148,1);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#Successful3 {
+    left: 269px;
+    top: 19px;
+    position: absolute;
+    overflow: visible;
+    line-height: 28px;
+    margin-top: -5px;
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: rgba(19,92,148,1);
+    letter-spacing: 0.1px;
+}
+
+.bg-gradient{
+  background: rgb(119,194,171);
+  background: -moz-linear-gradient(90deg, rgba(119,194,171,1) 0%, rgba(19,92,148,1) 68%);
+  background: -webkit-linear-gradient(90deg, rgba(119,194,171,1) 0%, rgba(19,92,148,1) 68%);
+  background: linear-gradient(90deg, rgba(119,194,171,1) 0%, rgba(19,92,148,1) 68%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#77c2ab",endColorstr="#135c94",GradientType=1);
+}
+#bg-footer{
+  /* height: 150px; */
+  background: rgb(119,194,171);
+  background: -moz-linear-gradient(90deg, rgba(119,194,171,1) 0%, rgba(19,92,148,1) 68%);
+  background: -webkit-linear-gradient(90deg, rgba(119,194,171,1) 0%, rgba(19,92,148,1) 68%);
+  background: linear-gradient(90deg, rgba(119,194,171,1) 0%, rgba(19,92,148,1) 68%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#77c2ab",endColorstr="#135c94",GradientType=1);
+}
+.w-footer{
+  width: 6%; 
+}
+.fix-flex{
+  display: flex;
+}
+.fix-w-iconfooter{
+  width: 75%;
+}
+
+ 

@@ -10,6 +10,7 @@
 
 	
 	<link href="{{asset('assets/bootstrap4/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{asset('assets/fontawesom/css/all.css') }}" rel="stylesheet">
 	<link href="{{asset('assets/fonts/stylesheet.css') }}" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
