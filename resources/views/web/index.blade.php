@@ -30,10 +30,10 @@
     </div>
 </section>
 
-<section class="py-5 my-5">
+<section class="py-1 my-1 py-lg-5 my-lg-5">
     <div class="container">
-        <div class="row my-5 ">
-            <div class="col-md-6 ">
+        <div class="row my-5  d-lg-flex d-md-none d-none" >
+            <div class="col-md-6 col-12 ">
                 <div id="Successful1">
                     <span>25</span><span class="text-green f-30">M</span>
                 </div>
@@ -49,7 +49,7 @@
                 </div>
                 
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-12">
                 <div id="Successful1">
                     <span>5</span>
                 </div>
@@ -64,6 +64,21 @@
                     <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consectetur adipiscing.</span>
                 </div>
             </div>
+        </div>
+        <div class="row mb-5 d-lg-none d-block d-md-block ">
+            <div class="col-12">
+                 <span class="text-center" id="Successful1">25</span><span class="text-green f-30">M</span>
+                 <p id="Successful2"><span>Successful<br/>projects</span></p>
+                 <hr class="hr-index">
+                <span class="text-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consectetur adipiscing.</span>
+            </div>
+            <div class="col-12">
+                  <span class="text-center" id="Successful1">5</span>
+                 <p id="Successful2"> <span>Years in <br/>business</span></p>
+                 <hr class="hr-index">
+                <span class="text-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consectetur adipiscing.</span>
+            </div>
+            
         </div>
         <div class="row my-5">
             <div class="col-md-12 text-center">
@@ -84,10 +99,10 @@
             </div>
             <div class="col-md-8">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-lg-0 mt-4">
                         <img class="w-100"  src="{{asset('assets/image/product/gallery02.jpg')}}">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-lg-0 mt-4">
                         <img class="w-100"  src="{{asset('assets/image/product/gallery03.jpg')}}">
                     </div>
                     <div class="col-md-6 mt-4">

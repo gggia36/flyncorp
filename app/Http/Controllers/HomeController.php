@@ -15,6 +15,14 @@ class HomeController extends Controller
     {
         return view('web.index');
     }
+    public function About()
+    {
+        return view('web.about');
+    }
+    public function Contact()
+    {
+        return view('web.contact');
+    }
 
     /**
      * Show the form for creating a new resource.

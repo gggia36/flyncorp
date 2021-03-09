@@ -109,8 +109,52 @@ ul {
 
 /*------------------------------------ end navbar--------------------------------------*/
 
+.btn-product{
+    border: 2px solid #fff;
+    background-color: #fff0;
+    border-radius: 30px;
+    padding: 15px 40px;
+    color: white;
+    box-shadow: 0 6px 30px -10px #4a74c9;
+    transition: all 0.5s ease;
+    letter-spacing: 1px;
+}
+
+.btn-product:hover{
+    border: 2px solid #fff;
+    color: #000;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 15px 40px;
+    box-shadow: 0 0px 0px 0 rgba(0, 40, 120, 0);
+    transform: scale(0.930);
+}
+.btn-effect2 {
+  &::before {
+    display: block;
+    position: absolute;
+    bottom: -10%;
+    // top: calc(100% + .25rem);
+    left: 0;
+    border-top: 1px solid transparent;
+    width: 0%;
+    // height: 2rem;
+  }
+  &:hover::before {
+    width: 100%;
+    border-color: darken(#2aca76, 10%);
+  }
+}
+.img-line{
+  vertical-align: text-top;
+  margin-right: 10px
+}
+
 .fix-font{
   font-family: 'majesti_bannerlight';
+}
+.hr-index{
+  border: 1px solid #135c94;
 }
 
 .center-img {
@@ -125,10 +169,18 @@ ul {
 #bg-section1{
 	background-image: url("../image/logo/aboutus_bg.jpg");
 	background-size: auto;
-    min-height: 798px;
+  min-height: 798px;
+  background-repeat: no-repeat;
+}
+
+.line-height-30{
+  line-height: 30px;
 }
 .f-30{
   font-size: 30px;
+}
+.card-p-y{
+  padding: 35px 30px;
 }
 
 .text-blue{
@@ -148,6 +200,9 @@ ul {
 }
 .p-30{
 	padding: 30px;
+}
+.f-bold{
+  font-weight: bold;
 }
 #Rectangle_5 {
     fill: rgba(19,92,148,1);
@@ -228,4 +283,7 @@ ul {
   width: 75%;
 }
 
+.fix-mt-product{
+  margin-top: 18vmin;    
+}
  

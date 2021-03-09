@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top " id="navbar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{url('/')}}"><img class="w-100" src="{{asset('assets/image/logo/logo_flyn.svg')}}" alt="Flyncorp Icon"></a>
+    <a class="navbar-brand width-navbar-sm" href="{{url('/')}}"><img class="w-100 " src="{{asset('assets/image/logo/logo_flyn.svg')}}" alt="Flyncorp Icon"></a>
     <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#modal_drawer_right" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-align-right"></i>
     </button>
@@ -10,13 +10,13 @@
           <a class="nav-link active" aria-current="page" href="{{url('/')}}">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/')}}">PRODUCT</a>
+          <a class="nav-link" href="{{url('product')}}">PRODUCT</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/')}}">ABOUT US</a>
+          <a class="nav-link" href="{{url('about')}}">ABOUT US</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/')}}">CONTACT US</a>
+          <a class="nav-link" href="{{url('contact')}}">CONTACT US</a>
         </li>
        <!--  <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -48,13 +48,13 @@
                   <a class="nav-link active" aria-current="page" href="{{url('/')}}">HOME</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url('/')}}">PRODUCT</a>
+                  <a class="nav-link" href="{{url('product')}}">PRODUCT</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url('/')}}">ABOUT US</a>
+                  <a class="nav-link" href="{{url('about')}}">ABOUT US</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url('/')}}">CONTACT US</a>
+                  <a class="nav-link" href="{{url('contact')}}">CONTACT US</a>
             </li>
         </ul>
       </div>   
