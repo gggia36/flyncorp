@@ -100,7 +100,7 @@ ul {
    font-family: 'majesti_bannerlight';
 }
 
-.navbar-expand-lg .navbar-nav .nav-link {
+.navbar-expand-lg .navbar-nav .nav-link .active {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
     font-family: 'majesti_bannerlight';
@@ -108,6 +108,11 @@ ul {
 
 
 /*------------------------------------ end navbar--------------------------------------*/
+.active{
+  /* background-color:#d90000; */
+  color:#135C94 !important;
+
+}
 
 .btn-product{
     border: 2px solid #fff;
@@ -118,6 +123,23 @@ ul {
     box-shadow: 0 6px 30px -10px #4a74c9;
     transition: all 0.5s ease;
     letter-spacing: 1px;
+}
+.text-color-h{
+  color: #565656;
+}
+.btn-contat{
+  color: #fff;
+  background-color: #135C94;
+  border-radius: 30px;
+  padding: 15px 40px;
+  transform: scale(0.930);
+}
+.btn-contat:hover{
+  color: #fff;
+  background-color: #0a436f;
+  border-radius: 30px;
+  padding: 15px 40px;
+  transform: scale(0.930);
 }
 
 .btn-product:hover{

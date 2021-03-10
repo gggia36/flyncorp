@@ -4,19 +4,19 @@
     <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#modal_drawer_right" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-align-right"></i>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse " id="navbarNav">
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0" >
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{url('/')}}">HOME</a>
+          <a class="nav-link {{ Request::segment(1) === '/' ? 'active'  : null }}" aria-current="page" href="{{url('/')}}">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('product')}}">PRODUCT</a>
+          <a class="nav-link {{ Request::segment(1) === 'product' ? 'active' : null }}" href="{{url('product')}}">PRODUCT</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('about')}}">ABOUT US</a>
+          <a class="nav-link {{ Request::segment(1) === 'about' ? 'active' : null }}" href="{{url('about')}}">ABOUT US</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('contact')}}">CONTACT US</a>
+          <a class="nav-link {{ Request::segment(1) === 'contact' ? 'active' : null }}" href="{{url('contact')}}">CONTACT US</a>
         </li>
        <!--  <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">

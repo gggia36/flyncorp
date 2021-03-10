@@ -15,8 +15,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
-	<link href="{{asset('assets/css/custom.css') }}" rel="stylesheet">
-	<link href="{{asset('assets/css/responsive.css') }}" rel="stylesheet">
+	<link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">
+	<link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet">
 
 </head>
 <body>

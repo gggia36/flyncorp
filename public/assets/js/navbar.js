@@ -10,3 +10,12 @@ var currentScrollPos = window.pageYOffset;
   prevScrollpos = currentScrollPos;
 
 }
+
+
+// active menu
+// $(document).ready(function(){
+//   $('ul li a').click(function(){
+//     $('li a').removeClass("active");
+//     $(this).addClass("active");
+// });
+// });
