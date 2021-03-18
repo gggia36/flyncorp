@@ -3,92 +3,149 @@
     <div class="container ">
         <div class="row text-center">
             <div class="col-md-12 fix-mt-product">
-                <h1 class="text-uppercase fix-font text-blue mb-3 f-bold">PRODUCTS</h1>
-                <p>รายการไม้บันไดยางพาราประสานสำเร็จรูป (ขนาดมาตรฐานที่ใช้ทั่วไป)</p>
+                <h1 class="text-uppercase fix-font text-blue mb-3 f-bold">บันไดสำเร็จรูป</h1>
+                <p>บันไดสำเร็จรูปที่เป็นที่นิยมใช้ในปัจจุบันแบ่งออกเป็นสองชนิด คือบันไดไม้จริง กับบันไดไม้สังเคราะห์</p>
             </div>
         </div>
-        <div class="row my-5 py-5">
-        	<div class="col-md-6 card-p-y text-center">
-        		<img class="w-75 "  src="{{asset('assets/image/product/gallery01.png')}}">
-                    <div class="card-body text-left">
-                        <h2 class="text-blue mb-3">ลูกนอน</h2>
-                        <ul class="p-0 line-height-30">
-                            <li>
-                                ลูกนอน 25x275x1200mm (หนา 1")
-                            </li>
-                            <li>
-                                ลูกนอน 25x300x1200mm (หนา 1")
-                            </li>
-                            <li>
-                                ลูกนอน 30x275x1200mm (หนา 1 1/2")
-                            </li>
-                            <li>
-                                ลูกนอน 30x300x1200mm (หนา 1 1/2")
-                            </li>
-                        </ul>
-                    </div>
+        <div class="row">
+        	<div class="col-6">
+        	<table>
+        		<tr>
+        			<td>
+        		 		<p class="f-14">เรียงตาม</p>
+        			</td>
+        			<td>
+        				<div class="dropdown mx-4">
+						  <button class="btn btn-secondary dropdown-toggle dropdown-btn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    อัพเดจล่าสุด
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						    <button class="dropdown-item" type="button">ราคาสูงสุด</button>
+						    <button class="dropdown-item" type="button">ราคาต่ำสุด</button>
+						  </div>
+						</div>
+        			</td>
+        		</tr>
+        	</table> 
         	</div>
-        	<div class="col-md-6 card-p-y text-center">
-        		<img class="w-75 "  src="{{asset('assets/image/product/gallery02.png')}}">
-                    <div class="card-body text-left ">
-                        <h2 class="text-blue mb-3">ลูกตั้ง</h2>
-                        <ul class="p-0 line-height-30">
-                            <li>
-                                16x200x1200mm                     
-                            </li>
-                        </ul>
-                    </div>
+        	<div class="col-6 text-right"> 
+        		 <p class="f-14">พบสินค้า 19 ชิ้น</p>
         	</div>
-            <div class="col-md-6 card-p-y text-center">
-                <img class="w-75 "  src="{{asset('assets/image/product/gallery03.png')}}">
-                <div class="card-body text-left">
-                    <h2 class="text-blue mb-3">ชานพักสามเหลี่ยม</h2>
-                    <ul class="p-0 line-height-30">
-                        <li>
-                            ชานพักสามเหลี่ยม 25x1200x1200mm
-                        </li>
-                        <li>
-                            ชานพักสามเหลี่ยม 30x1200x1200mm
-                        </li>
-                        <li>
-                            ชานพักสี่เหลี่ยม 25x1200x1200mm
-                        </li>
-                        <li>
-                            ชานพักสี่เหลี่ยม 30x1200x1200mm
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6 card-p-y text-center">
-                <img class="w-75 "  src="{{asset('assets/image/product/gallery04.png')}}">
-                 <div class="card-body text-left">
-                    <h2 class="text-blue mb-3">ราวบันได</h2>
-                    <ul class="p-0 line-height-30">
-                        <li>
-                            ราวบันได 30x75x3000mm
-                        </li>
-                        <li>
-                            ราวบันได 50x75x3000mm
-                        </li>
-                        <li>
-                            ราวบันไดกลม 50x50x3000mm
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        </div>
+        <div class="row mt-5">
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery7.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดMDFปิดผิวลามิเนตHPL</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 2,800</p>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery8.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 3,400</p>
+        		</div>
+        		
+        	</div>
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery9.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดไม้โอ๊คเอ็นจิเนียร์(ทำสี)</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 2,800</p>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery10.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 3,400</p>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery14.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 4,200</p>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery12.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดไม้ยางพาราประสาน</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 2,400</p>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery11.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 480</p>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery13.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 640</p>
+        		</div>
+        	</div>
+
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery15.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 4,200</p>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery16.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดไม้ยางพาราประสาน</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 4,200</p>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery17.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 480</p>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 col-md-6 col-12">
+        		<img class="w-100" src="{{asset('assets/image/product/gallery18.png')}}">
+        		<div class="card-block">
+        			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
+        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+        			<br><br>
+        			<p class="text-blue">฿ 640</p>
+        		</div>
+        	</div>
+        	
         </div>
     </div>
 </section>
-
-<section class="bg-gradient">
-	<div class="container py-5 text-center">
-		<div class="row py-5">
-			<div class="col-md-12">
-				<button type="button" class="btn btn-primary btn-lg btn-product">ติดต่อสอบถามเพิ่มเติม</button>
-			</div>
-		</div>
-	</div>
-</section>
-
 
 @endsection

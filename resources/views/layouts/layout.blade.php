@@ -10,6 +10,7 @@
 
 	
 	<link href="{{asset('assets/bootstrap4/css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{asset('assets/vender/lightslider-master/dist/css/lightslider.css')}}" rel="stylesheet">
     <link href="{{asset('assets/fontawesom/css/all.css') }}" rel="stylesheet">
 	<link href="{{asset('assets/fonts/stylesheet.css') }}" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -31,8 +32,13 @@
 
 
 <script src="{{asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{asset('assets/vender/lightslider-master/dist/js/lightslider.js')}}"></script>
+
+<script src="js/lightslider.js"></script>
 <script src="{{asset('assets/bootstrap4/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{asset('assets/js/navbar.js') }}"></script>
+<script src="{{asset('assets/js/slide.js') }}"></script>
+
 
 </body>
 </html>
