@@ -13,8 +13,9 @@
 	<link href="{{asset('assets/vender/lightslider-master/dist/css/lightslider.css')}}" rel="stylesheet">
     <link href="{{asset('assets/fontawesom/css/all.css') }}" rel="stylesheet">
 	<link href="{{asset('assets/fonts/stylesheet.css') }}" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="{{asset('assets/vender/aos/aos.css')}}" rel="stylesheet">
+	<!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com"> -->
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
 	<link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">
 	<link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet">
@@ -32,12 +33,15 @@
 
 
 <script src="{{asset('assets/js/jquery.min.js') }}"></script>
-<script src="{{asset('assets/vender/lightslider-master/dist/js/lightslider.js')}}"></script>
-
-<script src="js/lightslider.js"></script>
 <script src="{{asset('assets/bootstrap4/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{asset('assets/vender/aos/aos.js')}}"></script>
+<script src="{{asset('assets/vender/lightslider-master/dist/js/lightslider.js')}}"></script>
 <script src="{{asset('assets/js/navbar.js') }}"></script>
 <script src="{{asset('assets/js/slide.js') }}"></script>
+
+ <script>
+    AOS.init();
+  </script>
 
 
 </body>

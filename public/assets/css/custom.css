@@ -143,28 +143,33 @@ ul {
 .demo {
     width:450px;
 }
-ul {
-    list-style: none outside none;
-    padding-left: 0;
-    margin-bottom:0;
-}
-li {
-    display: block;
-    float: left;
-    margin-right: 6px;
-    cursor:pointer;
-}
+
 img {
     display: block;
     height: auto;
-    max-width: 100%;
 }
 
 /* ------------------------------------- end Slider ------------------------------------- */
+.img-hover-zoom {
+  /* height: 300px;  */
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform .5s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+}
+
+
 p > img{
     width: 100%;
 }
-
+.fix-mt-lg{
+    margin-top: 20%;
+}
 .f-14 {
     font-size: 14px;
 }

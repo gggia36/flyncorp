@@ -1,7 +1,7 @@
 @extends('layouts.layout') @section('content')
 
-<section>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+<section  class="aos-init aos-animate" data-aos="zoom-in" data-aos-duration="1000">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" >
         <div class="carousel-inner">
             <div class="carousel-item active position-relative">
                 <img src="{{asset('assets/image/product/banner_main.jpg')}}" class="d-block w-100" alt="banner flyncorp" />
@@ -16,7 +16,7 @@
 
 
 <section class="d-flex align-items-center" id="bg-section1">
-    <div class="container">
+    <div class="container aos-init aos-animate"  data-aos="zoom-out-up" data-aos-duration="1000">
         <div class="row align-items-center">
             <div class="col-md-5 my-3 my-lg-0 order-lg-1 order-2">
                 <img class="w-100" src="{{asset('assets/image/product/aboutus_image.png')}}">
@@ -33,7 +33,7 @@
 <section class="py-1 my-1 py-lg-5 my-lg-5">
     <div class="container">
         <div class="row my-5  d-lg-flex d-md-none d-none" >
-            <div class="col-md-6 col-12 ">
+            <div class="col-md-6 col-12 " >
                 <div id="Successful1">
                     <span>25</span><span class="text-green f-30">M</span>
                 </div>
@@ -49,7 +49,7 @@
                 </div>
                 
             </div>
-            <div class="col-md-6 col-12">
+            <div class="col-md-6 col-12" >
                 <div id="Successful1">
                     <span>5</span>
                 </div>
@@ -81,15 +81,15 @@
             
         </div>
         <div class="row my-5">
-            <div class="col-md-12 text-center">
-                <img class="w-75" src="{{asset('assets/image/logo/testimonial_logo.png')}}">
+            <div class="col-md-12 ">
+                <img class="w-75 mx-auto" src="{{asset('assets/image/logo/testimonial_logo.png')}}">
             </div>
         </div>
     </div>
 </section>
 
 <section class="bg-gradient">
-    <div class="container py-5 ">
+    <div class="container py-5 aos-init aos-animate" data-aos="zoom-out-up" data-aos-duration="1000">
         <div class="row py-5">
             <div class="col-md-12">
                 <h2 class="text-center text-uppercase text-white mb-4">our portfolio</h2>

@@ -10,7 +10,7 @@
           <a class="nav-link {{ Request::segment(1) === '/' ? 'active'  : null }}" aria-current="page" href="{{url('/')}}">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::segment(1) === 'product' ? 'active' : null }}" href="{{url('product')}}">PRODUCT</a>
+          <a class="nav-link {{ Request::segment(1) === 'product_category' ? 'active' : null }}" href="{{url('product_category')}}">PRODUCT</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::segment(1) === 'about' ? 'active' : null }}" href="{{url('about')}}">ABOUT US</a>
@@ -48,7 +48,7 @@
                   <a class="nav-link active" aria-current="page" href="{{url('/')}}">HOME</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url('product')}}">PRODUCT</a>
+                  <a class="nav-link" href="{{url('product_category')}}">PRODUCT</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{url('about')}}">ABOUT US</a>

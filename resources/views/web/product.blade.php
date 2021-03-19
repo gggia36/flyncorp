@@ -12,7 +12,7 @@
         	<table>
         		<tr>
         			<td>
-        		 		<p class="f-14">เรียงตาม</p>
+        		 		<p class="f-14 mb-0">เรียงตาม</p>
         			</td>
         			<td>
         				<div class="dropdown mx-4">
@@ -29,95 +29,132 @@
         	</table> 
         	</div>
         	<div class="col-6 text-right"> 
-        		 <p class="f-14">พบสินค้า 19 ชิ้น</p>
+        		 <p class="f-14 py-2 mb-0">พบสินค้า 19 ชิ้น</p>
         	</div>
         </div>
         <div class="row mt-5">
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery7.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดMDFปิดผิวลามิเนตHPL</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 2,800</p>
-        		</div>
+        	<div class="col-lg-3 col-md-6 col-6 ">
+                <a href="{{url('product_detail')}}">
+                    <div class="img-hover-zoom">
+                        <img class="w-100 img" src="{{asset('assets/image/product/gallery7.png')}}">
+                    </div>
+            		<div class="card-block">
+            			<h5 class="fixed-text-1 text-blue">ชานพักบันไดMDFปิดผิวลามิเนตHPL</h5>
+            			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+            			<br><br>
+            			<p class="text-blue">฿ 2,800</p>
+            		</div>
+                </a>
         	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery8.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 3,400</p>
-        		</div>
-        		
+        	<div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+            		<div class="img-hover-zoom">
+                        <img class="w-100 img" src="{{asset('assets/image/product/gallery8.png')}}">
+                    </div>
+            		<div class="card-block">
+            			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
+            			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+            			<br><br>
+            			<p class="text-blue">฿ 3,400</p>
+            		</div>
+                </a>
         	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery9.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดไม้โอ๊คเอ็นจิเนียร์(ทำสี)</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 2,800</p>
-        		</div>
+        	<div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+            		<div class="img-hover-zoom">
+                        <img class="w-100 img" src="{{asset('assets/image/product/gallery9.png')}}">
+                    </div>
+            		<div class="card-block">
+            			<h5 class="fixed-text-1 text-blue">ชานพักบันไดไม้โอ๊คเอ็นจิเนียร์(ทำสี)</h5>
+            			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+            			<br><br>
+            			<p class="text-blue">฿ 2,800</p>
+            		</div>
+                </a>
         	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery10.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 3,400</p>
-        		</div>
+        	<div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+                    <div class="img-hover-zoom">
+                        <img class="w-100" src="{{asset('assets/image/product/gallery10.png')}}">
+                    </div>
+            		<div class="card-block">
+            			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
+            			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+            			<br><br>
+            			<p class="text-blue">฿ 3,400</p>
+            		</div>
+                </a>
         	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery14.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 4,200</p>
-        		</div>
+        	<div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+            		<div class="img-hover-zoom">
+                        <img class="w-100" src="{{asset('assets/image/product/gallery14.png')}}">
+                    </div>
+            		<div class="card-block">
+            			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
+            			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+            			<br><br>
+            			<p class="text-blue">฿ 4,200</p>
+            		</div>
+                </a>
         	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery12.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดไม้ยางพาราประสาน</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 2,400</p>
-        		</div>
+        	<div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+            		<div class="img-hover-zoom">
+                        <img class="w-100" src="{{asset('assets/image/product/gallery12.png')}}">
+                    </div>
+            		<div class="card-block">
+            			<h5 class="fixed-text-1 text-blue">ชานพักบันไดไม้ยางพาราประสาน</h5>
+            			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+            			<br><br>
+            			<p class="text-blue">฿ 2,400</p>
+            		</div>
+                </a>
         	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery11.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 480</p>
-        		</div>
+        	<div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+            		<div class="img-hover-zoom">
+                        <img class="w-100" src="{{asset('assets/image/product/gallery11.png')}}">
+                    </div>
+            		<div class="card-block">
+            			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
+            			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+            			<br><br>
+            			<p class="text-blue">฿ 480</p>
+            		</div>
+                </a>
         	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery13.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 640</p>
-        		</div>
+        	<div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+            		<div class="img-hover-zoom">
+                        <img class="w-100" src="{{asset('assets/image/product/gallery13.png')}}">
+                    </div>
+            		<div class="card-block">
+            			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
+            			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+            			<br><br>
+            			<p class="text-blue">฿ 640</p>
+            		</div>
+                </a>
         	</div>
 
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery15.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 4,200</p>
-        		</div>
+        	<div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+            		<div class="img-hover-zoom">
+                        <img class="w-100" src="{{asset('assets/image/product/gallery15.png')}}">
+                    </div>
+            		<div class="card-block">
+            			<h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
+            			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+            			<br><br>
+            			<p class="text-blue">฿ 4,200</p>
+            		</div>
+                </a>
         	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery16.png')}}">
+        	<div class="col-lg-3 col-md-6 col-6">
+        		<div class="img-hover-zoom">
+                    <img class="w-100" src="{{asset('assets/image/product/gallery16.png')}}">
+                </div>
         		<div class="card-block">
         			<h5 class="fixed-text-1 text-blue">ชานพักบันไดไม้ยางพาราประสาน</h5>
         			<small class="color-888">ขนาด 25*1200*1200 mm</small>
@@ -125,23 +162,31 @@
         			<p class="text-blue">฿ 4,200</p>
         		</div>
         	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery17.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 480</p>
-        		</div>
+        	<div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+            		<div class="img-hover-zoom">
+                        <img class="w-100" src="{{asset('assets/image/product/gallery17.png')}}">
+                    </div>
+            		<div class="card-block">
+            			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
+            			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+            			<br><br>
+            			<p class="text-blue">฿ 480</p>
+            		</div>
+                </a>
         	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery18.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 640</p>
-        		</div>
+        	<div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+            		<div class="img-hover-zoom">
+                        <img class="w-100" src="{{asset('assets/image/product/gallery18.png')}}">
+                    </div>
+            		<div class="card-block">
+            			<h5 class="fixed-text-1 text-blue">ลูกนอนบันไดไม้ยางพาราประสาน</h5>
+            			<small class="color-888">ขนาด 25*1200*1200 mm</small>
+            			<br><br>
+            			<p class="text-blue">฿ 640</p>
+            		</div>
+                </a>
         	</div>
         	
         </div>

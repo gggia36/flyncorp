@@ -97,43 +97,58 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery7.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue ">ชานพักบันไดMDFปิดผิวลามิเนตHPL</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 2,800</p>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery8.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue ">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 3,400</p>
-        		</div>
-        		
-        	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery9.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue ">ชานพักบันไดไม้โอ๊คเอ็นจิเนียร์(ทำสี)</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 2,800</p>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-6 col-12">
-        		<img class="w-100" src="{{asset('assets/image/product/gallery10.png')}}">
-        		<div class="card-block">
-        			<h5 class="fixed-text-1 text-blue ">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
-        			<small class="color-888">ขนาด 25*1200*1200 mm</small>
-        			<br><br>
-        			<p class="text-blue">฿ 3,400</p>
-        		</div>
-        	</div>
+			<div class="col-lg-3 col-md-6 col-6 content">
+                <a href="{{url('product_detail')}}">
+                    <div class="img-hover-zoom">
+                        <img class="w-100 img" src="{{asset('assets/image/product/gallery7.png')}}">
+                    </div>
+                    <div class="card-block">
+                        <h5 class="fixed-text-1 text-blue">ชานพักบันไดMDFปิดผิวลามิเนตHPL</h5>
+                        <small class="color-888">ขนาด 25*1200*1200 mm</small>
+                        <br><br>
+                        <p class="text-blue">฿ 2,800</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+                    <div class="img-hover-zoom">
+                        <img class="w-100 img" src="{{asset('assets/image/product/gallery8.png')}}">
+                    </div>
+                    <div class="card-block">
+                        <h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
+                        <small class="color-888">ขนาด 25*1200*1200 mm</small>
+                        <br><br>
+                        <p class="text-blue">฿ 3,400</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+                    <div class="img-hover-zoom">
+                        <img class="w-100 img" src="{{asset('assets/image/product/gallery9.png')}}">
+                    </div>
+                    <div class="card-block">
+                        <h5 class="fixed-text-1 text-blue">ชานพักบันไดไม้โอ๊คเอ็นจิเนียร์(ทำสี)</h5>
+                        <small class="color-888">ขนาด 25*1200*1200 mm</small>
+                        <br><br>
+                        <p class="text-blue">฿ 2,800</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <a href="{{url('product_detail')}}">
+                    <div class="img-hover-zoom">
+                        <img class="w-100" src="{{asset('assets/image/product/gallery10.png')}}">
+                    </div>
+                    <div class="card-block">
+                        <h5 class="fixed-text-1 text-blue">ชานพักบันไดวีว่าบอร์ดปิดผิวลามิ</h5>
+                        <small class="color-888">ขนาด 25*1200*1200 mm</small>
+                        <br><br>
+                        <p class="text-blue">฿ 3,400</p>
+                    </div>
+                </a>
+            </div>
 		</div>
 	</div>
 </section>
