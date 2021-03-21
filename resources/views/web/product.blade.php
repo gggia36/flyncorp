@@ -26,9 +26,9 @@
 						</div>
         			</td>
         		</tr>
-        	</table> 
+        	</table>
         	</div>
-        	<div class="col-6 text-right"> 
+        	<div class="col-6 text-right">
         		 <p class="f-14 py-2 mb-0">พบสินค้า 19 ชิ้น</p>
         	</div>
         </div>
@@ -188,7 +188,7 @@
             		</div>
                 </a>
         	</div>
-        	
+
         </div>
     </div>
 </section>

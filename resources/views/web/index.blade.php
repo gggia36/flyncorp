@@ -47,7 +47,7 @@
                 <div id="Successful3">
                     <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consectetur adipiscing.</span>
                 </div>
-                
+
             </div>
             <div class="col-md-6 col-12" >
                 <div id="Successful1">
@@ -78,7 +78,7 @@
                  <hr class="hr-index">
                 <span class="text-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consectetur adipiscing.</span>
             </div>
-            
+
         </div>
         <div class="row my-5">
             <div class="col-md-12 ">
@@ -114,7 +114,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </section>
 
