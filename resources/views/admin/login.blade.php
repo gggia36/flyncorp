@@ -62,35 +62,14 @@
                                     <div class="">
                                         <input class="form-control" type="password" required="" placeholder="Password"> </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="d-flex">
-                                        <div class="checkbox checkbox-info pt-0">
-                                            <input id="checkbox-signup" type="checkbox" class="material-inputs chk-col-indigo">
-                                            <label for="checkbox-signup"> Remember me </label>
-                                        </div>
-                                        <div class="ms-auto">
-                                            <a href="javascript:void(0)" id="to-recover" class="link font-weight-medium"><i class="fa fa-lock me-1"></i> Forgot pwd?</a>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="form-group text-center mt-4 mb-3">
                                     <div class="col-xs-12">
                                         <button class="btn btn-info d-block w-100 waves-effect waves-light" type="submit">Log In</button>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 text-center">
-                                        <div class="social mb-3">
-                                            <a href="javascript:void(0)" class="btn  btn-facebook" data-bs-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fab fa-facebook-f"></i> </a>
-                                            <a href="javascript:void(0)" class="btn btn-googleplus" data-bs-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fab fa-google"></i> </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group mb-0 mt-4">
-                                    <div class="col-sm-12 justify-content-center d-flex">
-                                        <p>Don't have an account? <a href="authentication-register1.html" class="text-info font-weight-medium ms-1">Sign Up</a></p>
-                                    </div>
-                                </div>
+
+
                             </form>
                         </div>
                     </div>

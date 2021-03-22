@@ -4,4 +4,5 @@ Route::get('/', function () {
 });
 
 Route::get('/login', 'Admin\AuthController@login')->name('login');
+Route::resource('/category', 'Admin\CategoryController');
 
