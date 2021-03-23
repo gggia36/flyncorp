@@ -27,6 +27,7 @@
 
 <main class="">
 @yield('content')
+
 @yield('modal')
 </main>
 @include('layouts.footer')

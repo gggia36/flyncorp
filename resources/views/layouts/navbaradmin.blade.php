@@ -8,9 +8,10 @@
                 <b class="logo-icon">
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="../assets/images/logos/logo-icon.png" alt="homepage" class="dark-logo" />
+                    <img src="{{asset('assets/image/logo/logo-text.png')}}" alt="homepage" class="dark-logo" />
+                    <!-- <img src="../assets/images/logos/logo-icon.png" alt="homepage" class="dark-logo" /> -->
                     <!-- Light Logo icon -->
-                    <img src="../assets/images/logos/logo-light-icon.png" alt="homepage" class="light-logo" />
+                    <!-- <img src="../assets/images/logos/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
                 </b>
                 <!--End Logo icon -->
             </a>
@@ -23,12 +24,12 @@
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="36">
+                        <img src="{{asset('assets/ample/src/images/users/3.jpg')}}" alt="user" class="rounded-circle" width="36">
                         <span class="ms-2 font-weight-medium">Steve</span><span class="fas fa-angle-down ms-2"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end user-dd animated flipInY">
                         <div class="d-flex no-block align-items-center p-3 bg-info text-white mb-2">
-                            <div class=""><img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="60"></div>
+                            <div class=""><img src="{{asset('assets/ample/src/images/users/3.jpg')}}" alt="user" class="rounded-circle" width="60"></div>
                             <div class="ms-2">
                                 <h4 class="mb-0 text-white">Steave Jobs</h4>
                             </div>
@@ -43,3 +44,5 @@
         </div>
     </nav>
 </header>
+
+
