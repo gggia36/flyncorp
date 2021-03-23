@@ -6,27 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--   <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, ample admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, material design, material dashboard bootstrap 5 dashboard template"> -->
-    <!-- <meta name="description" content="Ample is powerful and clean admin dashboard template, inpired from Google's Material Design"> -->
+    {{-- <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, ample admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, material design, material dashboard bootstrap 5 dashboard template">
+    <meta name="description" content="Ample is powerful and clean admin dashboard template, inpired from Google's Material Design"> --}}
     <meta name="robots" content="noindex,nofollow">
-    <title>Flyncorp Admin</title>
+    <title>Ample Template by WrapPixel</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ampleadmin/" />
-
     <link href="{{asset('assets/ample/dist/css/style.min.css')}}" rel='stylesheet'>
+
+    <link href="{{asset('assets/ample/src/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel='stylesheet' media='screen'>
+    <link href="{{asset('assets/ample/src/extra-libs/datatables.net-bs4/css/responsive.dataTables.min.css')}}" rel='stylesheet' media='screen'>
+
+    <link href="{{asset('assets/ample/dist/css/bootstrap2-toggle.min.css')}}" rel='stylesheet' media='screen'>
+
 
 </head>
 
 <body>
-
-    <div class="preloader">
-        <svg class="tea lds-ripple" width="37" height="48" viewbox="0 0 37 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M27.0819 17H3.02508C1.91076 17 1.01376 17.9059 1.0485 19.0197C1.15761 22.5177 1.49703 29.7374 2.5 34C4.07125 40.6778 7.18553 44.8868 8.44856 46.3845C8.79051 46.79 9.29799 47 9.82843 47H20.0218C20.639 47 21.2193 46.7159 21.5659 46.2052C22.6765 44.5687 25.2312 40.4282 27.5 34C28.9757 29.8188 29.084 22.4043 29.0441 18.9156C29.0319 17.8436 28.1539 17 27.0819 17Z" stroke="#20222a" stroke-width="2"></path>
-          <path d="M29 23.5C29 23.5 34.5 20.5 35.5 25.4999C36.0986 28.4926 34.2033 31.5383 32 32.8713C29.4555 34.4108 28 34 28 34" stroke="#20222a" stroke-width="2"></path>
-          <path id="teabag" fill="#20222a" fill-rule="evenodd" clip-rule="evenodd" d="M16 25V17H14V25H12C10.3431 25 9 26.3431 9 28V34C9 35.6569 10.3431 37 12 37H18C19.6569 37 21 35.6569 21 34V28C21 26.3431 19.6569 25 18 25H16ZM11 28C11 27.4477 11.4477 27 12 27H18C18.5523 27 19 27.4477 19 28V34C19 34.5523 18.5523 35 18 35H12C11.4477 35 11 34.5523 11 34V28Z"></path>
-          <path id="steamL" d="M17 1C17 1 17 4.5 14 6.5C11 8.5 11 12 11 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#20222a"></path>
-          <path id="steamR" d="M21 6C21 6 21 8.22727 19 9.5C17 10.7727 17 13 17 13" stroke="#20222a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-    </div>
 
     <div id="main-wrapper">
 
@@ -34,12 +29,38 @@
 
         @include('layouts.sidebaradmin')
 
+        <div class="page-wrapper">
+            <div class="page-breadcrumb border-bottom">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-xs-12 justify-content-start d-flex align-items-center">
+                        <h5 class="font-medium text-uppercase mb-0">Category</h5>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-xs-12 d-flex justify-content-start justify-content-md-end align-self-center">
+                        <nav aria-label="breadcrumb" class="mt-2">
+                            <ol class="breadcrumb mb-0 p-0">
+                                <li class="breadcrumb-item"><a href="index.html">admin</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">category</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content container-fluid">
+                {{-- <div class="row">
+                    <div class="col-12">
+                        <h1> 111111111 </h1>
+                    </div>
+                </div> --}}
+                @yield('content')
 
-        <main class="">
-        @yield('content')
-        @yield('modal')
-        </main>
+                @yield('modal')
+            </div>
 
+            {{-- <footer class="footer text-center">
+                All Rights Reserved by Ample admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer> --}}
+
+        </div>
     </div>
     <script src="{{asset('assets/ample/src/libs/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{asset('assets/ample/src/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
@@ -52,12 +73,34 @@
     <script src="{{asset('assets/ample/dist/js/sidebarmenu.js')}}"></script>
     <script src="{{asset('assets/ample/dist/js/feather.min.js')}}"></script>
     <script src="{{asset('assets/ample/dist/js/custom.min.js')}}"></script>
+    <script src="{{asset('assets/ample/src/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
+    <script src="{{asset('assets/ample/src/libs/sweetalert2/sweet-alert.init.js')}}"></script>
+    <script src="{{asset('assets/ample/src/extra-libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/ample/src/extra-libs/datatables.net-bs4/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('assets/ample/dist/js/pages/datatable/datatable-basic.init.js')}}"></script>
+    <script src="{{asset('assets/ample/src/libs/select2/dist/js/select2.full.min.js')}}"></script>
+    <script src="{{asset('assets/ample/src/libs/select2/dist/js/select2.min.js')}}"></script>
+    <script src="{{asset('assets/ample/dist/js/pages/forms/select2/select2.init.js')}}"></script>
+    <script src="{{asset('assets/ample/dist/js/pages/datatable/datatable-advanced.init.js')}}"></script>
+    <script src="{{asset('assets/ample/src/extra-libs/jqbootstrapvalidation/validation.js')}}"></script>
+    <script src="{{asset('assets/ample/dist/js/bootstrap-select.min.js')}}"></script>
+    <script src="{{asset('assets/ample/dist/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('assets/ample/dist/js/bootstrap2-toggle.min.js')}}"></script>
 
-    <!-- <script src="{{asset('/js/category.js')}}"></script> -->
+
+
+    {{-- <script src="{{asset('js/select2/select2.full.min.js')}}"></script> --}}
+
     <!-- This Page JS -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('js/category.js') }}"></script> -->
-    <!-- <script src="{{'Category/js/category.js'}}" ></script> -->
-   {{-- @stack('js') --}}
+    <script>
+        var url_gb = "{{url('/')}}";
+        var asset_gb = "{{asset('/')}}";
+
+
+        // $('.select2').select2();
+    </script>
+     @yield('script')
+
 </body>
 
 </html>
