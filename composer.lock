@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0dad4b07f55a922cd876e707e100d55",
+    "content-hash": "1c9aa0ef589533265c72fe84fca52ac1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -433,6 +433,39 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
+        },
+        {
+            "name": "elsayednofal/froala-editor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elsayednofal/froala-editor.git",
+                "reference": "651e23afc9e38e95f7f3fa36b1f42466e6258424"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elsayednofal/froala-editor/zipball/651e23afc9e38e95f7f3fa36b1f42466e6258424",
+                "reference": "651e23afc9e38e95f7f3fa36b1f42466e6258424",
+                "shasum": ""
+            },
+            "type": "git",
+            "autoload": {
+                "psr-4": {
+                    "Elsayednofal\\FroalaEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elsayed Nofal",
+                    "email": "elsayed_nofal@ymail.com"
+                }
+            ],
+            "description": "Easy to use Froala editor with laravel",
+            "time": "2018-09-27T10:11:39+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -6598,7 +6631,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "elsayednofal/froala-editor": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

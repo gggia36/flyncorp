@@ -8,6 +8,7 @@ use Validator;
 use DataTables;
 
 use App\Models\Product;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -19,6 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         $data['MainMenus'] = 'Propuct';
+        $data['Category'] = Category::get();
 
         return view('admin.Product.product', $data);
     }

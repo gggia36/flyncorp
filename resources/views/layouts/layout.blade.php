@@ -8,7 +8,7 @@
 	<title>flyncorp</title>
 	<link rel="shortcut icon" href="{{asset('assets/image/logo/logo_footer.svg')}}">
 
-	
+
 	<link href="{{asset('assets/bootstrap4/css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{asset('assets/vender/lightslider-master/dist/css/lightslider.css')}}" rel="stylesheet">
     <link href="{{asset('assets/fontawesom/css/all.css') }}" rel="stylesheet">
@@ -19,6 +19,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
 	<link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">
 	<link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet">
+
 
 </head>
 <body>
@@ -39,6 +40,7 @@
 <script src="{{asset('assets/vender/lightslider-master/dist/js/lightslider.js')}}"></script>
 <script src="{{asset('assets/js/navbar.js') }}"></script>
 <script src="{{asset('assets/js/slide.js') }}"></script>
+
 
  <script>
     AOS.init();

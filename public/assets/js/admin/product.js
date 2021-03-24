@@ -81,3 +81,7 @@ $(() => {
 
 
 });
+
+$('body').on('click', '.btn-add', function(data) {
+    $('#ModalAdd').modal('show');
+});

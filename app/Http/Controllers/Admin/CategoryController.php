@@ -19,6 +19,7 @@ class CategoryController extends Controller
     public function index()
     {
         $data['MainMenus'] = 'Category';
+
         return view('admin.Category.category', $data);
 
     }

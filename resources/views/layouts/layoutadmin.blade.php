@@ -19,6 +19,8 @@
     <link href="{{asset('assets/ample/src/extra-libs/datatables.net-bs4/css/responsive.dataTables.min.css')}}" rel='stylesheet' media='screen'>
 
     <link href="{{asset('assets/ample/dist/css/bootstrap2-toggle.min.css')}}" rel='stylesheet' media='screen'>
+    <link href="{{asset('assets/ample/src/libs/select2/dist/css/select2.min.css')}}" rel="stylesheet" type="text/css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
 
 
 </head>
@@ -88,6 +90,7 @@
     <script src="{{asset('assets/ample/dist/js/bootstrap-select.min.js')}}"></script>
     <script src="{{asset('assets/ample/dist/js/dataTables.buttons.min.js')}}"></script>
     <script src="{{asset('assets/ample/dist/js/bootstrap2-toggle.min.js')}}"></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/js/froala_editor.pkgd.min.js'></script>
 
 
 
