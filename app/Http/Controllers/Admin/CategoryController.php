@@ -18,7 +18,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.Category.category');
+        $data['MainMenus'] = 'Category';
+        return view('admin.Category.category', $data);
+
     }
 
     /**
@@ -39,7 +41,45 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input_all = $request->all();
+
+        $validator = Validator::make($request->all(), [
+
+            ]);
+
+            if (!$validator->fails()) {
+                \DB::beginTransaction();
+                try {
+                        $Category = new Category;
+                        $Category->category_name = $input_all['category']['category_name'];
+                        $Category->category_description = $input_all['category']['category_description'];
+                        $Category->category_status = $input_all['category']['category_status'];
+
+                        if(isset($input_all['category']['category_image'])){
+                            $banner_file_segments = explode('/',$input_all['category']['category_image']);
+                            $banner_file_name = end($banner_file_segments);
+                            $Category->category_image = $banner_file_name;
+                        }
+
+                    $Category->save();
+                    \DB::commit();
+                    $return['status'] = 1;
+                    $return['content'] = 'Success';
+                } catch (Exception $e) {
+                    \DB::rollBack();
+                    $return['status'] = 0;
+                    $return['content'] = 'Unsuccess';
+                }
+            }else{
+                $failedRules = $validator->failed();
+                $return['content'] = 'Unsuccess';
+                if(isset($failedRules['ads_zone']['required'])) {
+                    $return['status'] = 2;
+                    $return['title'] = "ads zone is required";
+                }
+            }
+            $return['title'] = 'Insert';
+            return $return;
     }
 
     /**
@@ -50,7 +90,11 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $content = Category::find($id);
+        $return['status'] = 1;
+        $return['title'] = 'Get Catgory';
+        $return['content'] = $content;
+        return $return;
     }
 
     /**
@@ -73,7 +117,46 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input_all = $request->all();
+        $validator = Validator::make($request->all(), [
+
+            ]);
+
+            if (!$validator->fails()) {
+                \DB::beginTransaction();
+                try {
+                    $Category = Category::find($input_all['category']['category_id']);
+                        $Category->category_name = $input_all['category']['category_name'];
+                        $Category->category_description = $input_all['category']['category_description'];
+                        $Category->category_status = $input_all['category']['category_status'];
+
+                        if(isset($input_all['category']['category_image'])){
+                            $banner_file_segments = explode('/',$input_all['category']['category_image']);
+                            $banner_file_name = end($banner_file_segments);
+                            $Category->category_image = $banner_file_name;
+                        }
+
+                    $Category->save();
+
+
+                    \DB::commit();
+                    $return['status'] = 1;
+                    $return['content'] = 'Success';
+                } catch (Exception $e) {
+                    \DB::rollBack();
+                    $return['status'] = 0;
+                    $return['content'] = 'Unsuccess';
+                }
+            }else{
+                $failedRules = $validator->failed();
+                $return['content'] = 'Unsuccess';
+                if(isset($failedRules['ads_zone']['required'])) {
+                    $return['status'] = 2;
+                    $return['title'] = "ads zone is required";
+                }
+            }
+            $return['title'] = 'Insert';
+            return $return;
     }
 
     /**
@@ -84,7 +167,21 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \DB::beginTransaction();
+        try {
+            $Category = Category::find($id);
+            $Category->delete();
+
+            \DB::commit();
+            $return['status'] = 1;
+            $return['content'] = 'Sucess';
+        } catch (Exception $e) {
+            \DB::rollBack();
+            $return['status'] = 0;
+            $return['content'] = 'Unsuccess';
+        }
+        $return['title'] = 'Delete';
+        return $return;
     }
     public function lists(Request $request)
     {
@@ -96,24 +193,21 @@ class CategoryController extends Controller
         $result = Category::select('category_id','category_name','category_description','category_image','category_status','created_at','updated_at')
         ->orderBy('created_at', 'DESC');
 
-        // $page_title = $request->input('page_title');
-        // $page_status = $request->input('page_status');
+        $search_name_category = $request->input('search_name_category');
+        $search_category_status = $request->input('search_category_status');
 
-        // if ($page_title) {
-        //     $result->where('menu_system_font_end_lang.menu_system_font_end_lang_name','LIKE','%'.$page_title.'%');
-        // };
+        if ($search_name_category) {
+            $result->where('category.category_name','LIKE','%'.$search_name_category.'%');
+        };
 
-        // if($page_status == 'all'){
-        //     $result->whereIn('menu_system_font_end.menu_system_font_end_status', [0, 1]);
-        // }else if($page_status == '1'){
-        //     $result->where('menu_system_font_end.menu_system_font_end_status', 1);
-        // }else if($page_status == '0'){
-        //     $result->where('menu_system_font_end.menu_system_font_end_status', 0);
-        // }
+        if($search_category_status == 'all'){
+            $result->whereIn('category.category_status', [0, 1]);
+        }else if($search_category_status == '1'){
+            $result->where('category.category_status', 1);
+        }else if($search_category_status == '0'){
+            $result->where('category.category_status', 0);
+        }
 
-        // $content = MenuSystemFontEnd::with('Join_MenuSetting', 'MenuSystemFontEndLang','MenuBannerSlide','MenuGallery')->find($id);
-        // $result = MenuSystemFontEnd::with('MenuSystemFontEndLang')->get();
-        // return $result;
         return Datatables::of($result)
 
         ->addColumn('created_at', function ($res) {
@@ -123,6 +217,9 @@ class CategoryController extends Controller
         ->addColumn('updated_at', function ($res) {
             $str = '<p> ' . ($res->updated_at ? date("d/m/Y", strtotime($res->updated_at)) : '-')  . '</p>';
             return $str;
+        })
+        ->addColumn('category_image', function ($res) {
+            return '<img  onerror="$(this).attr(\'src\',\''.asset('/assets/uploads/images/no-image.jpg').'\')"  src="'.asset('/uploads/Category/'.$res->category_image).'" style="max-height: 280px; max-width: 250px;">';
         })
 
         ->addColumn('action' , function($res){
@@ -140,11 +237,11 @@ class CategoryController extends Controller
                 //                     <input type="checkbox" class="custom-control-input chang=status " '.$checked.' data-id="'.$res->menu_system_font_end_id.'">
                 //                     <label class="custom-control-label col-sm-3" for="status-share_bt-edit"></label>
                 //                 </div>';
-            $btnView = ' <button type="button" class="btn waves-effect waves-light btn-info" data-id="'.$res->category_id.'">View</button>';
+            $btnView = ' <button type="button" class="btn waves-effect waves-light btn-info btn-view" data-id="'.$res->category_id.'">View</button>';
 
-            $btnEdit = '<button type="button" class="btn waves-effect waves-light btn-warning" data-id="'.$res->category_id.'">Edit</button>';
+            $btnEdit = '<button type="button" class="btn waves-effect waves-light btn-warning btn-edit" data-id="'.$res->category_id.'">Edit</button>';
 
-            $btnDelete = '<button type="button" class="btn waves-effect waves-light btn-danger" data-id="'.$res->category_id.'">Delete</button>';
+            $btnDelete = '<button type="button" class="btn waves-effect waves-light btn-danger btn-delete" data-id="'.$res->category_id.'">Delete</button>';
             $str = '';
                 $str.=' '.$btnStatus;
                 $str.=' '.$btnView;
@@ -154,8 +251,28 @@ class CategoryController extends Controller
             return $str;
         })
         ->addIndexColumn()
-        ->rawColumns(['action','created_at','updated_at'])
+        ->rawColumns(['action','created_at','updated_at','category_image'])
         ->make(true);
     }
+
+    public function ChangeStatus(Request $request, $id)
+    {
+        \DB::beginTransaction();
+        try {
+            $Category = Category::find($id);
+            $Category->category_status = $request->input('status');
+            $Category->save();
+            \DB::commit();
+            $return['status'] = 1;
+            $return['content'] = 'Success';
+        } catch (Exception $e) {
+            \DB::rollBack();
+            $return['status'] = 0;
+            $return['content'] = 'Unsuccess';
+        }
+        $return['title'] = 'Update Status';
+        return $return;
+    }
+
 
 }

@@ -9,8 +9,10 @@
     {{-- <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, ample admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, material design, material dashboard bootstrap 5 dashboard template">
     <meta name="description" content="Ample is powerful and clean admin dashboard template, inpired from Google's Material Design"> --}}
     <meta name="robots" content="noindex,nofollow">
-    <title>Ample Template by WrapPixel</title>
-    <link rel="canonical" href="https://www.wrappixel.com/templates/ampleadmin/" />
+    <title>flyncorp Admin</title>
+    {{-- <link rel="canonical" href="https://www.wrappixel.com/templates/ampleadmin/" /> --}}
+    <link rel="shortcut icon" href="{{asset('assets/image/logo/logo_footer.svg')}}">
+
     <link href="{{asset('assets/ample/dist/css/style.min.css')}}" rel='stylesheet'>
 
     <link href="{{asset('assets/ample/src/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel='stylesheet' media='screen'>
@@ -33,13 +35,13 @@
             <div class="page-breadcrumb border-bottom">
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-xs-12 justify-content-start d-flex align-items-center">
-                        <h5 class="font-medium text-uppercase mb-0">Category</h5>
+                        <h5 class="font-medium text-uppercase mb-0">{{$MainMenus}}</h5>
                     </div>
                     <div class="col-lg-9 col-md-8 col-xs-12 d-flex justify-content-start justify-content-md-end align-self-center">
                         <nav aria-label="breadcrumb" class="mt-2">
                             <ol class="breadcrumb mb-0 p-0">
-                                <li class="breadcrumb-item"><a href="index.html">admin</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">category</li>
+                                <li class="breadcrumb-item"><a href="{{url('/admin/category')}}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{$MainMenus}}</li>
                             </ol>
                         </nav>
                     </div>
