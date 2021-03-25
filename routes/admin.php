@@ -17,3 +17,4 @@ Route::post('/product/lists', 'Admin\ProductController@lists');
 
 Route::post('UploadImage/{folder}','Admin\UploadFileController@UploadImage');
 
+Route::post('UploadImageEditor/{folder}','Admin\UploadFileEditorController@UploadImage');

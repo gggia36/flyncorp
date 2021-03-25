@@ -16,7 +16,7 @@ class UploadFileController extends Controller
         return 'false';
         }
 		$type = $request->file->extension();
-        $return['path'] = $request->file->storeAs($folder, time() . '-Category-' . Str::random(5) . '.' . $type, 'uploads');
+        $return['path'] = $request->file->storeAs($folder, time() . '-' . Str::random(7) . '.' . $type, 'uploads');
 		$return['extension'] = $type;
 		switch ($return['extension']) {
 			case 'png':

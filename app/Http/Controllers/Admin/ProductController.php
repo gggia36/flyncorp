@@ -9,6 +9,8 @@ use DataTables;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\ProductImage;
+
 
 class ProductController extends Controller
 {
@@ -43,7 +45,68 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input_all = $request->all();
+// return $input_all;
+        $validator = Validator::make($request->all(), [
+
+            ]);
+
+            if (!$validator->fails()) {
+                \DB::beginTransaction();
+                try {
+
+                        $Product = new Product;
+                        $Product->product_name = $input_all['product']['product_name'];
+                        $Product->product_price = $input_all['product']['product_price'];
+                        $Product->product_description = $input_all['product']['product_description'];
+                        $Product->product_size = $input_all['product']['product_size'];
+                        $Product->product_status_fb_share = $input_all['product']['product_status_fb_share'];
+                        $Product->product_status_line_share = $input_all['product']['product_status_line_share'];
+                        $Product->product_status = $input_all['product']['product_status'];
+                        $Product->category_id = $input_all['product']['category_id'];
+                        $Product->save();
+                        $product_id = $Product->getKey();
+
+                        if(isset($input_all['product_image'])){
+                            $ProductImage = new ProductImage;
+                            foreach($input_all['product_image'] as $keys_details => $value_details){
+                                $banner_file_segments = explode('/',$value_details);
+                                $banner_file_name = end($banner_file_segments);
+                                $ProductImage->{$keys_details} = $banner_file_name;
+                                $ProductImage->product_id = $product_id ;
+                                // $aarr = [
+                                //     "image1" => '1',
+                                //     "image2" => '2',
+                                //     "image3" => '3',
+
+                                // ];
+                                // $ProductImage->a = json_encode($aarr);
+                                $ProductImage->save();
+                            }
+
+                        }
+
+                    \DB::commit();
+                    $return['status'] = 1;
+                    $return['content'] = 'Success';
+                } catch (Exception $e) {
+                    \DB::rollBack();
+                    $return['status'] = 0;
+                    $return['content'] = 'Unsuccess';
+                }
+            }else{
+                $failedRules = $validator->failed();
+                $return['content'] = 'Unsuccess';
+                if(isset($failedRules['ads_zone']['required'])) {
+                    $return['status'] = 2;
+                    $return['title'] = "Product is required";
+                }
+        }
+            $return['title'] = 'Insert';
+
+
+            return $return;
+
     }
 
     /**
@@ -54,7 +117,16 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $content = Product::with('Product_Image')->find($id);
+
+        $return['status'] = 1;
+        $return['title'] = 'Get Product';
+        $return['content'] = $content;
+
+        return $return;
+
+
+
     }
 
     /**
@@ -139,16 +211,16 @@ class ProductController extends Controller
             }else{
                 $checked = '';
             }
-            $btnStatus = '<input type="checkbox" class="toggle change-status" '.$checked.'  data-id="'.$res->category_id.'"   data-style="ios" data-on="On" data-off="Off">';
+            $btnStatus = '<input type="checkbox" class="toggle change-status" '.$checked.'  data-id="'.$res->product_id.'"   data-style="ios" data-on="On" data-off="Off">';
                 // $btnStatus = '<div class="form-group row custom-switch ">
                 //                     <input type="checkbox" class="custom-control-input chang=status " '.$checked.' data-id="'.$res->menu_system_font_end_id.'">
                 //                     <label class="custom-control-label col-sm-3" for="status-share_bt-edit"></label>
                 //                 </div>';
-            $btnView = ' <button type="button" class="btn waves-effect waves-light btn-info btn-view" data-id="'.$res->category_id.'">View</button>';
+            $btnView = ' <button type="button" class="btn waves-effect waves-light btn-info btn-view" data-id="'.$res->product_id.'">View</button>';
 
-            $btnEdit = '<button type="button" class="btn waves-effect waves-light btn-warning btn-edit" data-id="'.$res->category_id.'">Edit</button>';
+            $btnEdit = '<button type="button" class="btn waves-effect waves-light btn-warning btn-edit" data-id="'.$res->product_id.'">Edit</button>';
 
-            $btnDelete = '<button type="button" class="btn waves-effect waves-light btn-danger btn-delete" data-id="'.$res->category_id.'">Delete</button>';
+            $btnDelete = '<button type="button" class="btn waves-effect waves-light btn-danger btn-delete" data-id="'.$res->product_id.'">Delete</button>';
             $str = '';
                 $str.=' '.$btnStatus;
                 $str.=' '.$btnView;

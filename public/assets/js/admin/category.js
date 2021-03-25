@@ -84,13 +84,13 @@ $(() => {
     $('body').on('submit', '#FormAdd', function(e) {
         e.preventDefault();
         var form = $(this);
-        // loadingButton(form.find('button[type=submit]'));
+        loadingButton(form.find('button[type=submit]'));
         $.ajax({
             method: "POST",
             url: url_gb + "/admin/category",
             data: form.serialize()
         }).done(function(res) {
-            // resetButton(form.find('button[type=submit]'));
+            resetButton(form.find('button[type=submit]'));
             // console.log(res);
             if (res.status == 1) {
                 Swal.fire(res.title, res.content, 'success');
@@ -144,7 +144,7 @@ $(() => {
         var btn = $(this);
         $('#edit_category_id').val(id);
 
-        // loadingButton(btn);
+        loadingButton(btn);
         $.ajax({
             method: "GET",
             url: url_gb+"/admin/category/"+id,
@@ -152,7 +152,7 @@ $(() => {
                 id: id
             }
         }).done(function(res) {
-            // resetButton(btn);
+            resetButton(btn);
             var data = res.content;
             // var status = '';
                 if(data){
@@ -187,13 +187,13 @@ $(() => {
         e.preventDefault();
         var form = $(this);
         var id = $('#edit_category_id').val();
-        // loadingButton(form.find('button[type=submit]'));
+        loadingButton(form.find('button[type=submit]'));
         $.ajax({
             method: "PUT",
             url: url_gb+"/admin/category/"+id,
             data: form.serialize()
         }).done(function(res) {
-            // resetButton(form.find('button[type=submit]'));
+            resetButton(form.find('button[type=submit]'));
             if (res.status == 1) {
                 Swal.fire(res.title, res.content, 'success');
                 form[0].reset();
@@ -203,7 +203,7 @@ $(() => {
                 Swal.fire(res.title, res.content, 'error');
             }
         }).fail(function(res) {
-            // resetButton(form.find('button[type=submit]'));
+            resetButton(form.find('button[type=submit]'));
             Swal.fire("โอ๊ะโอ! เกิดข้อผิดพลาด", res.content, 'error');
         });
     });
@@ -243,7 +243,7 @@ $(() => {
         var id = $(this).data('id');
         var btn = $(this);
         $('#view_category_id').val(id);
-        // loadingButton(btn);
+        loadingButton(btn);
         $.ajax({
             method: "GET",
             url: url_gb+"/admin/category/"+id,
@@ -251,7 +251,7 @@ $(() => {
                 id: id
             }
         }).done(function(res) {
-            // resetButton(btn);
+            resetButton(btn);
             var data = res.content;
             $('#view_category_name').text(data.category_name ? data.category_name : '-' );
             $('#view_category_description').text(data.category_description ? data.category_description : '-');

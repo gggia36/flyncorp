@@ -90,7 +90,10 @@
     <script src="{{asset('assets/ample/dist/js/bootstrap-select.min.js')}}"></script>
     <script src="{{asset('assets/ample/dist/js/dataTables.buttons.min.js')}}"></script>
     <script src="{{asset('assets/ample/dist/js/bootstrap2-toggle.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.priceformat.js')}}"></script>
+
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/js/froala_editor.pkgd.min.js'></script>
+    <script src="{{ asset('assets/js/function.js') }}"></script>
 
 
 
