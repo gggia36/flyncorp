@@ -268,42 +268,10 @@ $(() => {
 
             }
 
-            if(data.ads_details_start_date){
-                var startDate = new Date(data.ads_details_start_date);
-                var month = startDate.getMonth() + 1;
-                var day = startDate.getDate();
-                var year = startDate.getFullYear();
-                month = month >= 10 ? month : '0'+month;
-                day = day >= 10 ? day : '0'+day;
-                $('#view_ads_start_date').text(`${day}/${month}/${year}`);
-            }else{
-                $('#view_ads_start_date').text('-');
-
-            }
-
-            if(data.ads_details_end_date){
-                var endDate = new Date(data.ads_details_end_date);
-                month = endDate.getMonth() + 1;
-                day = endDate.getDate();
-                year = endDate.getFullYear();
-                month = month >= 10 ? month : '0'+month;
-                day = day >= 10 ? day : '0'+day;
-                $('#view_ads_end_date').text(`${day}/${month}/${year}`);
-            }else{
-                $('#view_ads_end_date').text('-');
-
-            }
-
-
-            if(data.ads_details_status == 1){
-                $('#view_ads_details_status').text('NO');
-            }else{
-                $('#view_ads_details_status').text('OFF');
-            }
 
         $('#ModalView').modal('show');
     }).fail(function(res) {
-        // resetButton(form.find('button[type=submit]'));
+        resetButton(form.find('button[type=submit]'));
         swal("โอ๊ะโอ! เกิดข้อผิดพลาด", res.content, 'error');
         });
     });

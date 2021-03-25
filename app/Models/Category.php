@@ -11,4 +11,8 @@ class Category extends Model
 
     protected $table = 'category';
     protected $primaryKey = 'category_id';
+
+    public function Cate_Product(){
+        return $this->hasOne('App\Models\Product', 'category_id', 'category_id');
+    }
 }

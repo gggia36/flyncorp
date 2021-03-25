@@ -13,8 +13,8 @@ Route::post('/category/ChangeStatus/{id}', 'Admin\CategoryController@ChangeStatu
 
 Route::resource('product', 'Admin\ProductController');
 Route::post('/product/lists', 'Admin\ProductController@lists');
+Route::post('/product/ChangeStatus/{id}', 'Admin\ProductController@ChangeStatus');
 
 
 Route::post('UploadImage/{folder}','Admin\UploadFileController@UploadImage');
-
 Route::post('UploadImageEditor/{folder}','Admin\UploadFileEditorController@UploadImage');

@@ -68,19 +68,13 @@ class ProductController extends Controller
                         $product_id = $Product->getKey();
 
                         if(isset($input_all['product_image'])){
-                            $ProductImage = new ProductImage;
                             foreach($input_all['product_image'] as $keys_details => $value_details){
-                                $banner_file_segments = explode('/',$value_details);
+                                $ProductImage = new ProductImage;
+                                $banner_file_segments = explode('/',$value_details['product_image']);
                                 $banner_file_name = end($banner_file_segments);
-                                $ProductImage->{$keys_details} = $banner_file_name;
-                                $ProductImage->product_id = $product_id ;
-                                // $aarr = [
-                                //     "image1" => '1',
-                                //     "image2" => '2',
-                                //     "image3" => '3',
-
-                                // ];
-                                // $ProductImage->a = json_encode($aarr);
+                                $ProductImage->product_image  = $banner_file_name;
+                                $ProductImage->sort  = $value_details['sort'];
+                                $ProductImage->product_id = $product_id;
                                 $ProductImage->save();
                             }
 
@@ -118,10 +112,12 @@ class ProductController extends Controller
     public function show($id)
     {
         $content = Product::with('Product_Image')->find($id);
-
+        // $cate = Category::select('category.*','category.category_id as font_id')
+        // ->with('Cate_Product')->join('product', 'product.category_id', 'category.category_id')->groupBy('font_id')->get();
         $return['status'] = 1;
         $return['title'] = 'Get Product';
         $return['content'] = $content;
+        // $return['category'] = $cate;
 
         return $return;
 
@@ -149,7 +145,71 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input_all = $request->all();
+        // return $input_all;
+        $validator = Validator::make($request->all(), [
+
+            ]);
+
+            if (!$validator->fails()) {
+                \DB::beginTransaction();
+                try {
+
+                    $Product = Product::find($input_all['product']['product_id']);
+                    $Product->product_name = $input_all['product']['product_name'];
+                    $Product->product_price = $input_all['product']['product_price'];
+                    $Product->product_description = $input_all['product']['product_description'];
+                    $Product->product_size = $input_all['product']['product_size'];
+                    $Product->product_status_fb_share = $input_all['product']['product_status_fb_share'];
+                    $Product->product_status_line_share = $input_all['product']['product_status_line_share'];
+                    $Product->product_status = $input_all['product']['product_status'];
+                    $Product->category_id = $input_all['product']['category_id'];
+                    $Product->save();
+
+                    if(isset($input_all['product_image'])){
+                        foreach($input_all['product_image'] as $keys_details => $value_details){
+                                if(!empty($value_details['product_image_id'])){
+                                    // return 'มีค่า'.$value_details['product_image_id'];
+                                    $ProductImage = ProductImage::find($value_details['product_image_id']);
+                                    $banner_file_segments = explode('/',$value_details['product_image']);
+                                    $banner_file_name = end($banner_file_segments);
+                                    $ProductImage->product_image  = $banner_file_name;
+                                    $ProductImage->sort  = $value_details['sort'];
+                                    $ProductImage->product_id = $input_all['product']['product_id'];
+                                    $ProductImage->save();
+                                }else{
+                                    // return 'ไม่มีค่า' ;
+                                    $ProductImage = new ProductImage;
+                                    $banner_file_segments = explode('/',$value_details['product_image']);
+                                    $banner_file_name = end($banner_file_segments);
+                                    $ProductImage->product_image  = $banner_file_name;
+                                    $ProductImage->sort  = $value_details['sort'];
+                                    $ProductImage->product_id = $input_all['product']['product_id'];
+                                    $ProductImage->save();
+                                }
+                        }
+
+                    }
+
+
+                    \DB::commit();
+                    $return['status'] = 1;
+                    $return['content'] = 'Success';
+                } catch (Exception $e) {
+                    \DB::rollBack();
+                    $return['status'] = 0;
+                    $return['content'] = 'Unsuccess';
+                }
+            }else{
+                $failedRules = $validator->failed();
+                $return['content'] = 'Unsuccess';
+                if(isset($failedRules['ads_zone']['required'])) {
+                    $return['status'] = 2;
+                    $return['title'] = "ads zone is required";
+                }
+            }
+            $return['title'] = 'Insert';
+            return $return;
     }
 
     /**
@@ -160,7 +220,22 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \DB::beginTransaction();
+        try {
+            $Product = Product::find($id);
+            $Product->delete();
+            $ProductImage = ProductImage::where('product_id',$id)->delete();
+
+            \DB::commit();
+            $return['status'] = 1;
+            $return['content'] = 'Sucess';
+        } catch (Exception $e) {
+            \DB::rollBack();
+            $return['status'] = 0;
+            $return['content'] = 'Unsuccess';
+        }
+        $return['title'] = 'Delete';
+        return $return;
     }
     public function lists(Request $request)
     {
@@ -172,20 +247,20 @@ class ProductController extends Controller
         $result = Product::select('product_id','product_name','category_id','product_image','product_status','created_at','updated_at')
         ->orderBy('created_at', 'DESC');
 
-        // $search_name_category = $request->input('search_name_category');
-        // $search_category_status = $request->input('search_category_status');
+        $search_name_product = $request->input('search_name_product');
+        $search_product_status = $request->input('search_product_status');
 
-        // if ($search_name_category) {
-        //     $result->where('category.category_name','LIKE','%'.$search_name_category.'%');
-        // };
+        if ($search_name_product) {
+            $result->where('product.product_name','LIKE','%'.$search_name_product.'%');
+        };
 
-        // if($search_category_status == 'all'){
-        //     $result->whereIn('category.category_status', [0, 1]);
-        // }else if($search_category_status == '1'){
-        //     $result->where('category.category_status', 1);
-        // }else if($search_category_status == '0'){
-        //     $result->where('category.category_status', 0);
-        // }
+        if($search_product_status == 'all'){
+            $result->whereIn('product.product_status', [0, 1]);
+        }else if($search_product_status == '1'){
+            $result->where('product.product_status', 1);
+        }else if($search_product_status == '0'){
+            $result->where('product.product_status', 0);
+        }
 
         return Datatables::of($result)
 
@@ -206,7 +281,7 @@ class ProductController extends Controller
             $insert = '';
             $update = '';
             $delete = '';
-            if($res->category_status == 1){
+            if($res->product_status == 1){
                 $checked = 'checked';
             }else{
                 $checked = '';
@@ -233,4 +308,24 @@ class ProductController extends Controller
         ->rawColumns(['action','created_at','updated_at'])
         ->make(true);
     }
+
+    public function ChangeStatus(Request $request, $id)
+    {
+        \DB::beginTransaction();
+        try {
+            $Product = Product::find($id);
+            $Product->product_status = $request->input('status');
+            $Product->save();
+            \DB::commit();
+            $return['status'] = 1;
+            $return['content'] = 'Success';
+        } catch (Exception $e) {
+            \DB::rollBack();
+            $return['status'] = 0;
+            $return['content'] = 'Unsuccess';
+        }
+        $return['title'] = 'Update Status';
+        return $return;
+    }
+
 }
