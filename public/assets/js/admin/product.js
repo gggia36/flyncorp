@@ -22,7 +22,7 @@ $(() => {
                 "sortable": false
             },
             {"data": "category_id"},
-            {"data": "product_image"},
+            {"data": "product_image","class": "text-center",},
             {"data": "product_name"},
             {"data": "created_at"},
             {"data": "updated_at"},
@@ -189,7 +189,8 @@ $('body').on('click', '.btn-add', function(data) {
 });
 
 $('body').on('click','.btn-edit',function(data){
-    // $('#FormEdit').trigger('reset');
+    $('#FormEdit')[0].reset();
+
     var id = $(this).data('id');
     var btn = $(this);
     $('#edit_product_id').val(id);
@@ -219,29 +220,26 @@ $('body').on('click','.btn-edit',function(data){
                     if (typeof data.product__image !== 'undefined' && data.product__image.length > 0) {
                         $.each(data.product__image, function(k, v) {
                             var html = '';
-                            var img_id = '';
-
-                             html += '<img src=" '+url_gb+'/uploads/Product/'+v.product_image+'"  class="img-thumbnail" style="max-width:100%; max-height: 220px;" /> ';
-                             $('#edit_product_image_'+v.sort).html(html);
-
-                             if(v.product_image_id){
-                                // img_id += '<input type="hidden" id="edit_product_image_'+v.sort+'" name="product_image['+v.sort+'][product_image_id]"value="'+v.product_image_id+'"> ' ;
-                                // $('#edit_product_image_'+v.sort).append(img_id);
-                                // $('#edit-uploadFile'+v.sort).append(img_id);
-                                // $('input#edit-uploadFile'+v.sort ).data( "image-id",v.product_image_id  );
-                                $('input#edit-uploadFile'+v.sort).attr('data-image-id', v.product_image_id );
-
-                             }
-
-
-
-                            // console.log('edit_product_image_'+v.sort);
-
+                            var img = '';
+                            if(v.product_image){
+                                img += ((v.product_image ) ? url_gb+'/uploads/Product/'+v.product_image : url_gb+'/assets/uploads/images/no-image.jpg');
+                                html += '<img src="'+img+'"  class="img-thumbnail" style="max-width:100%; max-height: 220px;" /> ';
+                                $('#edit_product_image_'+v.sort).html(html);
+                                if(v.product_image_id){
+                                    $('input#edit-uploadFile'+v.sort).attr('data-image-id', v.product_image_id );
+                                 }
+                            }
                           });
                     }else{
                         // var html = '<img src=" '+url_gb+'/assets/uploads/images/no-image.jpg"  class="img-thumbnail" style="width:85%;max-height: 320px; " /> ';
                         // $('#edit_preview_img').html(html);
-                        console.log('ไม่มีค่า');
+                        // console.log('ไม่มีค่า');
+                        var html = '';
+
+                        html += '<img src=" '+url_gb+'/assets/uploads/images/no-image.jpg"  class="img-thumbnail" style="max-width:100%; max-height: 220px;" /> ';
+                        for (i = 1; i < 7; i++) {
+                            $('#edit_product_image_'+i).html(html);
+                        }
 
                     }
 
@@ -289,13 +287,44 @@ $('body').on('click','.btn-view',function(data){
     }).done(function(res) {
         resetButton(btn);
         var data = res.content;
-        $('#view_category_name').text(data.category_name ? data.category_name : '-' );
+
         $('#view_product_name').text(data.product_name ? data.product_name : '-' );
         $('#view_product_size').text(data.product_size ? data.product_size : '-' );
         $('#view_product_price').text(data.product_price ? data.product_price : '-' );
 
+        if(data.product_cate){
+            $('#view_category_name').text(data.product_cate.category_name ? data.product_cate.category_name : '-' );
+        }
+        editor = new FroalaEditor('#view_product_details', options);
+        editor.html.set(data.product_description);
+        editor.edit.off();
 
-        $('#view_product_details').text(data.category_description ? data.category_description : '-');
+
+        if (typeof data.product__image !== 'undefined' && data.product__image.length > 0) {
+            $.each(data.product__image, function(k, v) {
+                var html = '';
+                var img = '';
+                if(v.product_image){
+                    img += ((v.product_image ) ? url_gb+'/uploads/Product/'+v.product_image : url_gb+'/assets/uploads/images/no-image.jpg');
+                    html += '<img src="'+img+'"  class="img-thumbnail" style="max-width:100%; max-height: 220px;" /> ';
+                    $('#view_product_image_'+v.sort).html(html);
+
+                }
+              });
+        }else{
+            // var html = '<img src=" '+url_gb+'/assets/uploads/images/no-image.jpg"  class="img-thumbnail" style="width:85%;max-height: 320px; " /> ';
+            // $('#edit_preview_img').html(html);
+            // console.log('ไม่มีค่า');
+            var html = '';
+
+            html += '<img src=" '+url_gb+'/assets/uploads/images/no-image.jpg"  class="img-thumbnail" style="max-width:100%; max-height: 220px;" /> ';
+            for (i = 1; i < 7; i++) {
+                $('#view_product_image_'+i).html(html);
+            }
+
+        }
+
+        // $('#view_product_details').text(data.product_description ? data.product_description : '-');
         if(data.product_status){
             $('#view_product_status').text('ON');
         }else{

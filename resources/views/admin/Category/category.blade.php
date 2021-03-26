@@ -86,7 +86,7 @@
                         <div class="card shadow-sm">
                             <div class="p-4 text-center">
                                 <div class="table-responsive">
-                                    <table id="teble_category" class="table table-striped table-bordered no-wrap teble_category" >
+                                    <table id="teble_category" class="table table-striped table-bordered no-wrap teble_category" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>No</th>

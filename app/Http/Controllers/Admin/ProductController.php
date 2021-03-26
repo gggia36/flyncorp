@@ -10,6 +10,7 @@ use DataTables;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\ProductImage;
+use Illuminate\Support\Facades\App;
 
 
 class ProductController extends Controller
@@ -111,7 +112,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $content = Product::with('Product_Image')->find($id);
+        $content = Product::with('Product_Image','Product_cate')->find($id);
         // $cate = Category::select('category.*','category.category_id as font_id')
         // ->with('Cate_Product')->join('product', 'product.category_id', 'category.category_id')->groupBy('font_id')->get();
         $return['status'] = 1;
@@ -245,6 +246,9 @@ class ProductController extends Controller
         //     $result->groupBy('font_id');
 
         $result = Product::select('product_id','product_name','category_id','product_image','product_status','created_at','updated_at')
+        ->with(['Product_Image' => function($q){
+            $q->select('product_image_id','product_id','product_image','sort')->where('sort', 1)->get();
+        },'Product_cate'])
         ->orderBy('created_at', 'DESC');
 
         $search_name_product = $request->input('search_name_product');
@@ -272,10 +276,20 @@ class ProductController extends Controller
             $str = '<p> ' . ($res->updated_at ? date("d/m/Y", strtotime($res->updated_at)) : '-')  . '</p>';
             return $str;
         })
-        // ->addColumn('category_image', function ($res) {
-        //     return '<img  onerror="$(this).attr(\'src\',\''.asset('/assets/uploads/images/no-image.jpg').'\')"  src="'.asset('/uploads/Category/'.$res->category_image).'" style="max-height: 280px; max-width: 250px;">';
-        // })
+        ->addColumn('product_image', function ($res) {
+            if(!empty($res->Product_Image[0])){
+                foreach($res->Product_Image as $val){
+                    // return 'มีรูป';
+                    $str = '<img onerror="$(this).attr(\'src\',\''.asset('/assets/uploads/images/no-image.jpg').'\')"  src="'.asset('/uploads/Product/'.$val['product_image']).'" class="img-thumbnail"  style="max-height: 280px; max-width: 250px;">';
+                }
+            }else{
+                // return 'ไม่มีรูป';
 
+                $str = '<img src="'.asset('/assets/uploads/images/no-image.jpg').'" class="img-thumbnail"  style="max-height: 280px; max-width: 250px;"> ';
+
+            }
+            return  $str;
+        })
         ->addColumn('action' , function($res){
             $view = '';
             $insert = '';
@@ -305,7 +319,7 @@ class ProductController extends Controller
             return $str;
         })
         ->addIndexColumn()
-        ->rawColumns(['action','created_at','updated_at'])
+        ->rawColumns(['action','created_at','updated_at','product_image'])
         ->make(true);
     }
 

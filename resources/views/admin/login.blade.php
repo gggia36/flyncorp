@@ -41,23 +41,22 @@
                     <!-- Form -->
                     <div class="row">
                         <div class="col-12">
-                            <form class="form-horizontal mt-3 form-material" id="loginform" action="index.html">
+                            <form class="form-horizontal mt-3 form-material" id="loginform" method="POST">
                                 <div class="form-group mb-3">
-                                    <div class="">
-                                        <input class="form-control" type="text" required="" placeholder="Username"> </div>
+                                    <div>
+                                        <input class="form-control" type="text" required="" name="username" id="username" placeholder="Username">
+                                    </div>
                                 </div>
                                 <div class="form-group mb-4">
-                                    <div class="">
-                                        <input class="form-control" type="password" required="" placeholder="Password"> </div>
+                                    <div>
+                                        <input class="form-control" type="password" required="" name="password" id="password" placeholder="Password">
+                                    </div>
                                 </div>
-
                                 <div class="form-group text-center mt-4 mb-3">
                                     <div class="col-xs-12">
                                         <button class="btn btn-info d-block w-100 waves-effect waves-light" type="submit">Log In</button>
                                     </div>
                                 </div>
-
-
                             </form>
                         </div>
                     </div>
@@ -122,6 +121,48 @@
         $("#loginform").slideUp();
         $("#recoverform").fadeIn();
     });
+
+    $('#loginform').on('submit', form => {
+        $.ajax({
+            url:`{{route('check_login')}}`,
+            type:'POST',
+            dataType:'json',
+            data: {
+                username:$('#username').val(),
+                password:$('#password').val()
+            },
+            success:response => {
+                console.log(response)
+                if(response.success) {
+                    window.location = `{{url('admin/category')}}`;
+                }
+            },
+            error: (error) => {
+                console.log('login ผิด');
+            }
+        });
+        return false;
+    });
+
+    // $('body').on('submit', '#FormLogin', function(e) {
+    //         e.preventDefault();
+    //         var form = $(this);
+    //         loadingButton(form.find('button[type=submit]'));
+    //         $.ajax({
+    //             method: "POST",
+    //             url: "{{url('admin/CheckLogin')}}",
+    //             data: form.serialize()
+    //         }).done(function(res) {
+    //             if (res.status == 0) {
+    //                 swal(res.title, res.content, 'error');
+    //                 resetButton(form.find('button[type=submit]'));
+    //             } else {
+    //                 window.location = "{{url('/admin/Dashboard')}}";
+    //             }
+    //         }).fail(function(data) {
+    //             resetButton(form.find('button[type=submit]'));
+    //         });
+    //     });
     </script>
 </body>
 

@@ -49,6 +49,23 @@
             width: 100%;
         }
 
+        .view_div_preview_product {
+            width: 100%;
+            height: 180px;
+            background-position: center center;
+            background-size: cover;
+            /* -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3); */
+            display: inline-block;
+            content: "click Here";
+            color: black;
+            position: relative;
+
+            /* background-color: #686869; */
+        }
+        .view_div_preview_product img {
+            width: 100%;
+        }
+
         .text-inbox-center {
             position: absolute;
             top: 10%;
@@ -465,17 +482,16 @@
                                 <label class="col-sm-8 control-label col-form-label" id="view_product_price"></label>
                             </div>
                         </div>
-                        <div class="row mb-3" id="edit-upload_img">
+                        <div class="row mb-3" id="view-upload_img">
                             @for ($i = 1; $i < 7; $i++)
-                                <div class="col-sm-4 view_main_web_logo mb-2 mt-2" onclick="clickUpload(this,'#edit-uploadFile{{$i}}')"  style="max-width:100%; height: 220px;">
-                                    <div class=" mb-2 text-center view_div_preview_product" id="edit-div_preview_img_product_{{$i}}" img-preview="{{$i}}" >
+                                <div class="col-sm-4 view_main_web_logo mb-2 mt-2"  style="max-width:100%; height: 220px;">
+                                    <div class=" mb-2 text-center view_div_preview_product" id="view-div_preview_img_product_{{$i}}" img-preview="{{$i}}" >
                                         <div class="" id="view_product_image_{{$i}}">
                                             <img class="img-thumbnail" id="view_preview_img_product_{{$i}}" style="max-width:100%; max-height: 220px;" src="{{ asset('assets/uploads/images/no-image.jpg') }}">
                                         </div>
 
                                     </div>
                                 </div>
-                                <input type="file" class="form-control edit-upload-product-img d-none" type="file" id="edit-uploadFile{{$i}}" name="image{{$i}}"  data-index="{{$i}}" accept="image/*">
                             @endfor
                         </div>
 
@@ -483,8 +499,12 @@
                             <div class="col-sm-12">
                                 <label for="view_product_details"
                                 class="control-label col-form-label text-center">Product Details:</label>
-                                <label class="col-sm-8 control-label col-form-label" id="view_product_details"></label>
-
+                                {{-- <label class="col-sm-8 control-label col-form-label" id="view_product_details"></label> --}}
+                                <?php
+                                    $content_textarea_id = 'view_product_details';
+                                    $content_textarea_name = 'product[product_description]';
+                                    echo Froala::initEditor($content_textarea_name, $content_textarea_id, '');
+                                ?>
                             </div>
                         </div>
 
