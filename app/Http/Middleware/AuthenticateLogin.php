@@ -16,12 +16,7 @@ class AuthenticateLogin
      */
     public function handle($request, Closure $next)
     {
-        // dd(Session::has('session_login'));
-
-        if( Session::getId('session_login')){
-            return $next($request);
-        }else{
-            return view('admin.login');
-        }
+        dd(session('session_login'));
+        return $next($request);
     }
 }

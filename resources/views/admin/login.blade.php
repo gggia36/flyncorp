@@ -41,7 +41,8 @@
                     <!-- Form -->
                     <div class="row">
                         <div class="col-12">
-                            <form class="form-horizontal mt-3 form-material" id="loginform" method="POST">
+                            <form class="form-horizontal mt-3 form-material" id="formlogin" method="post">
+                                @csrf
                                 <div class="form-group mb-3">
                                     <div>
                                         <input class="form-control" type="text" required="" name="username" id="username" placeholder="Username">
@@ -61,29 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="recoverform">
-                    <div class="logo">
-                        <h3 class="font-weight-medium mb-3">Recover Password</h3>
-                        <span class="text-muted">Enter your Email and instructions will be sent to you!</span>
-                    </div>
-                    <div class="row mt-3 form-material">
-                        <!-- Form -->
-                        <form class="col-12" action="index.html">
-                            <!-- email -->
-                            <div class="form-group row">
-                                <div class="col-12">
-                                    <input class="form-control" type="email" required="" placeholder="Username">
-                                </div>
-                            </div>
-                            <!-- pwd -->
-                            <div class="row mt-3">
-                                <div class="col-12">
-                                    <button class="btn d-block w-100 btn-primary text-uppercase" type="submit" name="action">Reset</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+
             </div>
         </div>
         <!-- ============================================================== -->
@@ -108,7 +87,9 @@
     <script src="{{asset('assets/ample/src/libs/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{asset('assets/ample/src/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-
+    <script src="{{ asset('assets/js/function.js') }}"></script>
+    <script src="{{asset('assets/ample/src/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
+    <script src="{{asset('assets/ample/src/libs/sweetalert2/sweet-alert.init.js')}}"></script>
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->
@@ -117,52 +98,38 @@
     // ==============================================================
     // Login and Recover Password
     // ==============================================================
-    $('#to-recover').on("click", function() {
-        $("#loginform").slideUp();
-        $("#recoverform").fadeIn();
-    });
+    // $('#to-recover').on("click", function() {
+    //     $("#loginform").slideUp();
+    //     $("#recoverform").fadeIn();
+    // });
 
-    $('#loginform').on('submit', form => {
-        $.ajax({
-            url:`{{route('check_login')}}`,
-            type:'POST',
-            dataType:'json',
-            data: {
-                username:$('#username').val(),
-                password:$('#password').val()
-            },
-            success:response => {
-                console.log(response)
-                if(response.success) {
-                    window.location = `{{url('admin/category')}}`;
+
+
+    $('body').on('submit', '#formlogin', function(e) {
+            e.preventDefault();
+            var form = $(this);
+            loadingButton(form.find('button[type=submit]'));
+            $.ajax({
+                method: "POST",
+                url: "{{url('admin/checkLogin')}}",
+                data: form.serialize()
+            }).done(function(res) {
+                if (res.status == 0) {
+                    Swal.fire(res.title, res.content, 'error');
+                    sessionStorage.setItem('session_login', 0);
+                    resetButton(form.find('button[type=submit]'));
+                } else {
+                    sessionStorage.setItem('session_login', 1);
+                    resetButton(form.find('button[type=submit]'));
+
+                    window.location = "{{url('/admin/category')}}";
                 }
-            },
-            error: (error) => {
-                console.log('login ผิด');
-            }
+            }).fail(function(data) {
+                resetButton(form.find('button[type=submit]'));
+            });
         });
-        return false;
-    });
 
-    // $('body').on('submit', '#FormLogin', function(e) {
-    //         e.preventDefault();
-    //         var form = $(this);
-    //         loadingButton(form.find('button[type=submit]'));
-    //         $.ajax({
-    //             method: "POST",
-    //             url: "{{url('admin/CheckLogin')}}",
-    //             data: form.serialize()
-    //         }).done(function(res) {
-    //             if (res.status == 0) {
-    //                 swal(res.title, res.content, 'error');
-    //                 resetButton(form.find('button[type=submit]'));
-    //             } else {
-    //                 window.location = "{{url('/admin/Dashboard')}}";
-    //             }
-    //         }).fail(function(data) {
-    //             resetButton(form.find('button[type=submit]'));
-    //         });
-    //     });
+
     </script>
 </body>
 

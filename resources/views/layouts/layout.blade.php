@@ -45,6 +45,13 @@
  <script>
     AOS.init();
   </script>
+ <script>
+    var url_gb = "{{url('/')}}";
+    var asset_gb = "{{asset('/')}}";
+
+    // $('.select2').select2();
+</script>
+@yield('script')
 
 
 </body>

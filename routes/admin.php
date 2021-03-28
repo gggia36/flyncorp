@@ -1,14 +1,13 @@
 <?php
-Route::get('/', function () {
-    return('Welcome to admin user routes.');
-});
-
 Route::get('/login', 'Admin\AuthController@login')->name('login');
-Route::post('/login', 'Admin\AuthController@check_login')->name('check_login');
+Route::post('/checkLogin', 'Admin\AuthController@checkLogin')->name('checkLogin');
+
+// Route::post('/login', 'Admin\AuthController@check_login')->name('check_login');
 Route::get('/logout', 'Admin\AuthController@Logout');
 
-Route::middleware(['authLogin'])->group(function () {
+Route::group(['middleware' => []],function () {
     Route::resource('category', 'Admin\CategoryController');
+
     Route::post('/category/lists', 'Admin\CategoryController@lists');
     Route::post('/category/ChangeStatus/{id}', 'Admin\CategoryController@ChangeStatus');
 

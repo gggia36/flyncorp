@@ -17,7 +17,6 @@
         }
 
     </style>
-
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -300,4 +299,10 @@
 @endsection
 @section('script')
     <script src="{{ asset('assets/js/admin/category.js') }}"></script>
+    <script>
+    const isLogin = sessionStorage.getItem('session_login');
+    if(!isLogin || isLogin === '0'){
+        window.location.href = `{{url('admin/login')}}`
+    }
+    </script>
 @endsection

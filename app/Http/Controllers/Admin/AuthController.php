@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -18,34 +18,28 @@ class AuthController extends Controller
         return view('admin.login');
     }
 
-    public function check_login(Request $request){
-        DB::beginTransaction();
-        try{
-            $request->validate([
-                'username' => 'required|exists:admin_user,username',
-                'password' => 'required'
-            ]);
-            $admin_user = AdminUser::where('username',$request->username)->first();
-            if($admin_user){
-                if (Hash::check( $request->password,$admin_user->password)) {
-                    $admin_user->last_login = now();
-                    $admin_user->save();
-                    DB::commit();
-                    Session::put('session_login',$admin_user->admin_id);
-                    return response()->json(['success' => true,'message' => 'Successful'],200);
-                }else{
-                    DB::rollBack();
-                    return response()->json(['success' => false,'message' => 'Cannot login, please check your password'],200);
-                }
-            }
-            DB::rollBack();
-            return response()->json(['success' => false,'message' => 'Cannot login, please check your username or password'],200);
-        }catch(\Exception $e){
-            dd($e->getMessage());
-            DB::rollBack();
-            return response()->json(['success' => false,'message' => 'Cannot login, please check your username or password'],200);
+
+    public function checkLogin(Request $request)
+    {
+        $username = $request->input('username');
+        $password = $request->input('password');
+        $remember = $request->input('remember' , 'F');
+        if(Auth::guard('admin')->attempt(['username' => $username, 'password' => $password,'status' => 1] , $remember)) {
+            $admin_user = Auth::guard('admin')->user();
+            AdminUser::where('admin_id', $admin_user->admin_id)->update(['last_login' => date('Y-m-d H:i:s')]);
+            $return['status'] = 1;
+            $return['title'] = "สำเร็จ";
+            $return['content'] = "เข้าสู่ระบบเรียบร้อย";
+            $return['session_login'] = 1;
+        }else{
+            $return['status'] = 0;
+            $return['title'] = "ไม่สำเร็จ";
+            $return['content'] = "Username หรือ Password ไม่ถูกต้อง";
+            $return['session_login'] = 0;
         }
+        return $return;
     }
+
     public function Logout(Request $request){
         Session::flush();
         return redirect('/admin/login');

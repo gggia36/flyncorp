@@ -563,4 +563,11 @@
 </div>
 @section('script')
     <script src="{{ asset('assets/js/admin/product.js') }}"></script>
+    <script>
+        const isLogin = sessionStorage.getItem('session_login');
+        console.log(isLogin)
+        if(!isLogin || isLogin === '0'){
+            window.location.href = `{{url('admin/login')}}`
+        }
+    </script>
 @endsection

@@ -7,8 +7,8 @@
                 <p>รายการไม้บันไดยางพาราประสานสำเร็จรูป (ขนาดมาตรฐานที่ใช้ทั่วไป)</p>
             </div>
         </div>
-        <div class="row my-5 py-5" id="show_category">
-            {{-- <div class="col-md-6 card-p-y ">
+        <div class="row my-5 py-5">
+            <div class="col-md-6 card-p-y ">
                 <img class="w-75 "  src="{{asset('assets/image/product/product.png')}}">
                 <div class="mt-5 text-left">
                     <h2 class="text-blue mb-3">บันไดสำเร็จรูป</h2>
@@ -27,7 +27,7 @@
                     <br><br>
                     <a href="{{url('product')}}" class="text-blue f-14">ดูรายละเอียด</a>
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
 </section>

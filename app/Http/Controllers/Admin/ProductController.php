@@ -246,9 +246,7 @@ class ProductController extends Controller
         //     $result->groupBy('font_id');
 
         $result = Product::select('product_id','product_name','category_id','product_image','product_status','created_at','updated_at')
-        ->with(['Product_Image' => function($q){
-            $q->select('product_image_id','product_id','product_image','sort')->where('sort', 1)->get();
-        },'Product_cate'])
+        ->with(['Product_Image'])
         ->orderBy('created_at', 'DESC');
 
         $search_name_product = $request->input('search_name_product');
