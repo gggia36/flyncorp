@@ -25,7 +25,7 @@ Route::get('product', 'ProductController@Product');
 Route::get('product_detail', 'ProductController@ProductDetail');
 
 
-Route::get('/category', 'Web\FrontWebController@show_all_category');
+// Route::get('/category', 'Web\FrontWebController@show_all_category');
 
 
 
