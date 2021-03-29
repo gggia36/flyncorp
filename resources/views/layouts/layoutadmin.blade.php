@@ -110,6 +110,13 @@
     </script>
      @yield('script')
 
+     <script>
+        function Click_logout() {
+            sessionStorage.setItem('session_login', 0);
+            window.location = "{{url('/admin/login')}}";
+        }
+    </script>
+
 </body>
 
 </html>

@@ -34,7 +34,8 @@
                                 <h4 class="mb-0 text-white">Steave Jobs</h4>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="{{url('/admin/logout')}}">
+                        {{-- <a class="dropdown-item" href="{{url('/admin/logout')}}"> --}}
+                            <a class="dropdown-item"onclick="Click_logout()">
                             <i data-feather="log-out" class="feather-sm text-danger me-1 ms-1"></i>
                             Logout
                         </a>

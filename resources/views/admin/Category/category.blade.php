@@ -112,7 +112,7 @@
 @endsection @section('modal')
 <div id="ModalAdd" class="modal fade" tabindex="-1"
     aria-labelledby="primary-header-modalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header modal-colored-header bg-light ">
                 <h4 class="modal-title text-black-50 " id="primary-header-modalLabel ">Add</h4>
@@ -179,7 +179,7 @@
 
 <div id="ModalEdit" class="modal fade" tabindex="-1"
     aria-labelledby="primary-header-modalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header modal-colored-header bg-light ">
                 <h4 class="modal-title text-black-50 " id="primary-header-modalLabel ">Edit</h4>
@@ -243,7 +243,7 @@
 
 <div id="ModalView" class="modal fade" tabindex="-1"
     aria-labelledby="primary-header-modalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header modal-colored-header bg-light ">
                 <h4 class="modal-title text-black-50 " id="primary-header-modalLabel ">View</h4>

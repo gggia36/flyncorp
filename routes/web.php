@@ -26,6 +26,10 @@ Route::get('product_detail', 'ProductController@ProductDetail');
 
 
 Route::get('/category', 'Web\FrontWebController@show_all_category');
+Route::get('/category/{id}', 'Web\FrontWebController@show_category_details');
+Route::get('/category/{id}/product', 'Web\FrontWebController@show_category_details_product_details');
+
+Route::get('/category/{id}/product/{id_product}', 'Web\FrontWebController@show_category_details_product_details');
 
 
-
+Route::get('/category/product/{id}', 'Web\FrontWebController@ProductDetail_show');

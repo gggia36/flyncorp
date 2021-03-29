@@ -11,7 +11,6 @@ Route::group(['middleware' => []],function () {
     Route::post('/category/lists', 'Admin\CategoryController@lists');
     Route::post('/category/ChangeStatus/{id}', 'Admin\CategoryController@ChangeStatus');
 
-
     Route::resource('product', 'Admin\ProductController');
     Route::post('/product/lists', 'Admin\ProductController@lists');
     Route::post('/product/ChangeStatus/{id}', 'Admin\ProductController@ChangeStatus');

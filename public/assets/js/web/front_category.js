@@ -12,12 +12,12 @@ $(() => {
 
                 html += `
                         <div class="col-md-6 card-p-y ">
-                            <img class="w-75 "  src="uploads/Category/${category.category_image}">
+                            <img class="w-75 "  src="uploads/Category/${category.category_image['product_image']}">
                             <div class="mt-5 text-left">
                                 <h2 class="text-blue mb-3">${category.category_name}</h2>
                                 <label class="line-height-30">${category.category_description}</label>
                                 <br><br>
-                                <a href="product" class="text-blue f-14">ดูรายละเอียด</a>
+                                <a href="category/${category.category_id}" class="text-blue f-14" >ดูรายละเอียด</a>
                             </div>
                         </div>
                 `;
