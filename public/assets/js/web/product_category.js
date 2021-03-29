@@ -2,13 +2,11 @@ $(() => {
     // alert(url_gb);
    var Idcate = $('#category_id').val();
     $.ajax({
-        url: url_gb + "/category/"+Idcate+"/product",
+        url: url_gb + "/category-data/"+Idcate,
         type: 'GET',
         dataType: 'json',
         success: (response) => {
             let html = '';
-
-console.log(response);
             response.map((product, idx) => {
                 let img = '';
                 product.product__image.map(image => {

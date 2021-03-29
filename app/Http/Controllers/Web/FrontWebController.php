@@ -21,7 +21,7 @@ class FrontWebController extends Controller
 
     public function show_category_details(Request $request,$id)
     {
-        $data['Product'] = Product::find($id)->orderBy('created_at', 'desc')->get();
+        $data['Product'] = Product::where('category_id',$id)->orderBy('created_at', 'desc')->get();
         $data['cate_product'] = Category::where('category_id', $id)->first();
 
         return view('web.product', $data);
@@ -33,22 +33,32 @@ class FrontWebController extends Controller
 
     }
 
-    public function show_category_details_product_details(Request $request,$id,$id_detail)
+    public function get_data_category_details(Request $request,$id)
     {
-        $data['Product'] = Product::find($id)->orderBy('created_at', 'desc')->get();
+        return Product::where('category_id',$id)->where('product_status',1)->with(['Product_Image'])
+        ->orderBy('created_at', 'DESC')->get();
+    }
 
 
+
+    public function show_category_details_product_details(Request $request,$id,$id_product)
+    {
+        $data['product_detail'] = Product::where('product_id', $id_product)->first();
         return view('web.product_detail', $data);
 
     }
+    public function get_data_category_details_product_details(Request $request,$id_product)
+    {
+        // return Product::with(['Product_Image'])->where('product_id', $id_product)->orderBy('product_image.sort', 'desc')->first();
 
-    // public function ProductDetail_show(Request $request,$id)
-    // {
-    //     $data['product_detail'] = Product::where('product_id', $id)->first();
+        $result = Product::select('product.*','product.product_id as font_id')->with('Product_Image')->orderBy('created_at', 'DESC')
+        ->join('product_image', 'product_image.product_id', 'product.product_id')
+        ->where('product.product_id',$id_product)
+        ->groupBy('font_id')
 
-    //     return view('web.product_detail', $data);
-
-    // }
+        ->get();
+        return $result;
+    }
 
 
 }

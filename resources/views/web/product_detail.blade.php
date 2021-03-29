@@ -9,24 +9,31 @@
             </div>
         </div>
         <div class="row mt-5">
-                <input type="hidden" id="product_id" value="">
-                {{-- @foreach ($Product as $item)
-                    <p> {{$item->product_name}}</p>
-                @endforeach --}}
+                <input type="hidden" id="product_id" value="{{$product_detail->product_id}}">
                 <div class="col-md-12 col-lg-6">
                     <div class="demo" id="slide_img">
                         <ul id="lightSlider">
-                            <li data-thumb="{{asset('uploads/Product/gallery18.png')}}">
+                            <li data-thumb="{{asset('assets/image/product/gallery18.png')}}">
                                 <img class="w-100" src="{{asset('assets/image/product/gallery18.png')}}" />
                             </li>
-
+                            <li data-thumb="{{asset('assets/image/product/gallery17.png')}}">
+                                <img class="w-100" src="{{asset('assets/image/product/gallery17.png')}}" />
+                            </li>
+                            <li data-thumb="{{asset('assets/image/product/gallery16.png')}}">
+                                <img class="w-100" src="{{asset('assets/image/product/gallery16.png')}}" />
+                            </li>
+                            <li data-thumb="{{asset('assets/image/product/gallery14.png')}}">
+                                <img class="w-100" src="{{asset('assets/image/product/gallery14.png')}}" />
+                            </li>
+                            <li data-thumb="{{asset('assets/image/product/gallery13.png')}}">
+                                <img class="w-100" src="{{asset('assets/image/product/gallery13.png')}}" />
+                            </li>
                         </ul>
-
                     </div>
                 </div>
 
-        	<div class="col-md-12 col-lg-6 mt-4 mt-lg-0">
-        		<h2 class="text-blue mb-3">บันไดไม้จริงโอ๊คเอ็นจิเนียร์ (ทำสี) ปิดผิวไม้จริงโอ๊ค</h2>
+        	<div class="col-md-12 col-lg-6 mt-4 mt-lg-0" id="show_detail_1">
+        		{{-- <h2 class="text-blue mb-3">บันไดไม้จริงโอ๊คเอ็นจิเนียร์ (ทำสี) ปิดผิวไม้จริงโอ๊ค</h2>
         		<small>ขนาด 25mm * 250mm * 1200mm</small>
         		<br><br>
         		<p class="text-blue">฿ 1,160</p>
@@ -47,7 +54,7 @@
         			</table>
         		</div>
         		<br>
-        		<p>หมวดหมู่: บันไดบ้านสำเร็จรูป</p>
+        		<p>หมวดหมู่: บันไดบ้านสำเร็จรูป</p> --}}
 
         	</div>
         </div>

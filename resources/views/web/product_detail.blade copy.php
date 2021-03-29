@@ -8,8 +8,8 @@
             	<a class="color-565" href="{{url('product')}}"><i class="fas fa-angle-left color-565"></i> กลับหน้ารวมสินค้า</a>
             </div>
         </div>
-        <div class="row mt-5">
-        	<div class="col-md-12 col-lg-6">
+        <div class="row mt-5" id="slide_img">
+        	<!-- <div class="col-md-12 col-lg-6">
         		<div class="demo">
 				    <ul id="lightSlider">
 				        <li data-thumb="{{asset('assets/image/product/gallery18.png')}}">
@@ -28,9 +28,9 @@
 				            <img class="w-100" src="{{asset('assets/image/product/gallery13.png')}}" />
 				        </li>
 				    </ul>
-				</div>
+				</div> -->
         	</div>
-        	<div class="col-md-12 col-lg-6 mt-4 mt-lg-0">
+        	<div class="col-md-12 col-lg-6 mt-4 mt-lg-0" >
         		<h2 class="text-blue mb-3">บันไดไม้จริงโอ๊คเอ็นจิเนียร์ (ทำสี) ปิดผิวไม้จริงโอ๊ค</h2>
         		<small>ขนาด 25mm * 250mm * 1200mm</small>
         		<br><br>

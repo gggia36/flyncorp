@@ -39,7 +39,6 @@
         </div>
         <div class="row mt-5" id="show_product_category">
 
-
         </div>
     </div>
 </section>
