@@ -21,8 +21,10 @@
 
     <link href="{{asset('assets/ample/dist/css/bootstrap2-toggle.min.css')}}" rel='stylesheet' media='screen'>
     <link href="{{asset('assets/ample/src/libs/select2/dist/css/select2.min.css')}}" rel="stylesheet" type="text/css">
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
     <script src="{{asset('assets/ample/src/libs/jquery/dist/jquery.min.js')}}"></script>
+
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+    @yield('meta')
 
 </head>
 

@@ -31,6 +31,7 @@ Route::get('/category/{id}/product/{id_product}', 'Web\FrontWebController@show_c
 
 //-----date----
 Route::get('/category-data/{id}', 'Web\FrontWebController@get_data_category_details');
+Route::get('/product-data-other/{id}', 'Web\FrontWebController@get_data_product_all');
 Route::get('/product-data/{id_product}', 'Web\FrontWebController@get_data_category_details_product_details');
 
 // Route::get('/category/{id}/product', 'Web\FrontWebController@show_category_details_product_details');

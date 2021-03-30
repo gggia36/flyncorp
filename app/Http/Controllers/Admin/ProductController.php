@@ -245,7 +245,7 @@ class ProductController extends Controller
         //     ->join('languages', 'languages.languages_id', 'menu_system_font_end_lang.languages_id');
         //     $result->groupBy('font_id');
 
-        $result = Product::select('product_id','product_name','category_id','product_image','product_status','created_at','updated_at')
+        $result = Product::select('product_id','product_name','category_id','product_status','created_at','updated_at')
         ->with(['Product_Image'])
         ->orderBy('created_at', 'DESC');
 

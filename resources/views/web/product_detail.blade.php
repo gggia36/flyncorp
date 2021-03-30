@@ -1,6 +1,11 @@
+@extends('layouts.layout')
+@section('meta')
+<script src="{{asset('assets/ample/src/libs/jquery/dist/jquery1234.min.js')}}"></script>
 
-@extends('layouts.layout') @section('content')
+@endsection
 
+
+@section('content')
 <section class="" id="bg-section1">
     <div class="container ">
         <div class="row">
@@ -10,10 +15,10 @@
         </div>
         <div class="row mt-5">
                 <input type="hidden" id="product_id" value="{{$product_detail->product_id}}">
-                <div class="col-md-12 col-lg-6">
+                <div class="col-md-12 col-lg-6"  >
                     <div class="demo" id="slide_img">
                         <ul id="lightSlider">
-                            <li data-thumb="{{asset('assets/image/product/gallery18.png')}}">
+                            {{-- <li data-thumb="{{asset('assets/image/product/gallery18.png')}}">
                                 <img class="w-100" src="{{asset('assets/image/product/gallery18.png')}}" />
                             </li>
                             <li data-thumb="{{asset('assets/image/product/gallery17.png')}}">
@@ -27,7 +32,7 @@
                             </li>
                             <li data-thumb="{{asset('assets/image/product/gallery13.png')}}">
                                 <img class="w-100" src="{{asset('assets/image/product/gallery13.png')}}" />
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>
@@ -63,8 +68,8 @@
 
 <section>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
+		<div class="row" id="show_detail_description">
+			{{-- <div class="col-md-12 ">
 				<h5 class="text-blue mb-4">Product Description</h5>
 				<p class="line-height-30"> • ลูกนอนบันไดไม้จริงเอ็นจิเนียร์ปิดผิวไม้จริงโอ๊ค รวมทำสี) ขนาด 25mm*250mm*1200 mm ราคา Promotion 1160 บาทต่อขั้น <br>
 					• ลูกตั้งบันไดไม้จริงเอ็นจิเนียร์ปิดผิวไม้จริงโอ๊ค(รวมทำสี) ขนาด 16mm*200mm*1200 mm ราคา Promotion 840 บาทต่อขั้น<br>
@@ -83,7 +88,7 @@
 			<div class="col-md-12 mt-4">
 				<h5 class="text-blue mb-4">สีมาตรฐานของบริษัท</h5>
         		<img class="mx-2"  src="{{asset('assets/image/product/colour.png')}}">
-			</div>
+			</div> --}}
 		</div>
 	</div>
 </section>
@@ -98,8 +103,8 @@
 				<h5 class="mb-4">สินค้าเกี่ยวข้อง</h5>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-3 col-md-6 col-6 content">
+		<div class="row" id="product_other">
+			{{-- <div class="col-lg-3 col-md-6 col-6 content">
                 <a href="{{url('product_detail')}}">
                     <div class="img-hover-zoom">
                         <img class="w-100 img" src="{{asset('assets/image/product/gallery7.png')}}">
@@ -150,7 +155,7 @@
                         <p class="text-blue">฿ 3,400</p>
                     </div>
                 </a>
-            </div>
+            </div> --}}
 		</div>
 	</div>
 </section>

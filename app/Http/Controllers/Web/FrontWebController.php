@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
-
+use Illuminate\Support\Facades\DB;
 class FrontWebController extends Controller
 {
     public function show_all_category(Request $request)
@@ -51,13 +51,40 @@ class FrontWebController extends Controller
     {
         // return Product::with(['Product_Image'])->where('product_id', $id_product)->orderBy('product_image.sort', 'desc')->first();
 
-        $result = Product::select('product.*','product.product_id as font_id')->with('Product_Image')->orderBy('created_at', 'DESC')
+        $result = Product::select('product.*','product.product_id as font_id')->with('Product_Image','Product_cate')->orderBy('created_at', 'DESC')
         ->join('product_image', 'product_image.product_id', 'product.product_id')
+        ->join('category', 'category.category_id', 'product.category_id')
+
         ->where('product.product_id',$id_product)
         ->groupBy('font_id')
 
         ->get();
         return $result;
+    }
+
+
+    public function get_data_product_all(Request $request,$id)
+    {
+        return Product::with(['Product_Image'])
+        ->where('product.product_id' ,'!=', $id)
+        ->where('product.product_status',1)
+        ->limit(4)
+        ->inRandomOrder()
+        ->get();
+
+        // $result = Product::select('product.*','product.product_id as font_id')->with('Product_Image')
+        // ->join('product_image', 'product_image.product_id', 'product.product_id')
+        // ->where('product.product_id' ,'!=', $id)
+        // ->where('product.product_status',1)
+        // // ->inRandomOrder()
+        // // ->limit(4)
+        // ->groupBy('font_id')
+
+        // ->get();
+
+        // return $result;
+
+
     }
 
 
