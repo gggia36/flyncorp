@@ -15,6 +15,10 @@ class HomeController extends Controller
     {
         return view('web.index');
     }
+    public function test()
+    {
+        return view('web.test');
+    }
     public function About()
     {
         return view('web.about');

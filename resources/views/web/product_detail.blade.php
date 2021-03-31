@@ -1,11 +1,64 @@
 @extends('layouts.layout')
-@section('meta')
-<script src="{{asset('assets/ample/src/libs/jquery/dist/jquery1234.min.js')}}"></script>
+@section('metaOg')
+@foreach ($metaog->product_image as $item)
+@if ($item->sort == 1 )
+    <meta property="og:url"         content="{{$url}}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{$metaog->product_name}}" />
+    <meta property="og:description"   content="{{$metaog->product_description}}" />
+    <meta property="og:image"         content="{{asset('/uploads/Product/'.$item->product_image)}}" />
 
+@endif
+@endforeach
 @endsection
 
 
 @section('content')
+
+
+<style>
+.demo {
+  width: 420px;
+}
+
+#lightSlider ul {
+  list-style: none outside none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+#lightSlider li {
+  display: block;
+  float: left;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+#lightSlider img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  max-height: 380px;
+}
+
+.preferredHeight {
+  max-height: 650px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+
+
+
+
+}
+.fix-img{
+        /* height: 440px; */
+    /* height: auto; */
+    object-fit: contain;
+    background-color: #F9F9F9;
+    }
+
+</style>
 <section class="" id="bg-section1">
     <div class="container ">
         <div class="row">
@@ -15,9 +68,9 @@
         </div>
         <div class="row mt-5">
                 <input type="hidden" id="product_id" value="{{$product_detail->product_id}}">
+
                 <div class="col-md-12 col-lg-6"  >
                     <div class="demo" id="slide_img">
-                        <ul id="lightSlider">
                             {{-- <li data-thumb="{{asset('assets/image/product/gallery18.png')}}">
                                 <img class="w-100" src="{{asset('assets/image/product/gallery18.png')}}" />
                             </li>
@@ -33,7 +86,6 @@
                             <li data-thumb="{{asset('assets/image/product/gallery13.png')}}">
                                 <img class="w-100" src="{{asset('assets/image/product/gallery13.png')}}" />
                             </li> --}}
-                        </ul>
                     </div>
                 </div>
 

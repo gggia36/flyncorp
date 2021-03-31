@@ -1,4 +1,6 @@
 $(() => {
+    const URL_href = window.location.href;
+    const URL_share_line = escape(URL_href);
     // alert('as');
     var Idproduct = $('#product_id').val();
     $.ajax({
@@ -10,20 +12,27 @@ $(() => {
             let html = '';
             let show_detail = '';
             let show_detail_description = '';
+            var numbers = [4, 2, 5, 1, 3];
+
 
 
             response.map((product, idx) => {
                 let img = '';
+                product.product__image.sort(function (a, b) {
+                    return a.sort - b.sort;
+                  });
+
                 product.product__image.map(image => {
+
                     img += `
                             <li data-thumb="${url_gb}/uploads/Product/${image.product_image}" >
-                                <img class="w-100"   src="${url_gb}/uploads/Product/${image.product_image}" />
+                                <img class="" src="${url_gb}/uploads/Product/${image.product_image}" />
                             </li>
                 `;
                 });
                 html += `
                         <div class="demo">
-                            <ul id="lightSlider" >
+                            <ul id="lightSlider" class="fix-img" >
                                     ${img}
                             </ul>
                          </div>
@@ -48,10 +57,15 @@ $(() => {
                                             Share:
                                         </td>
                                         <td>
-                                            <img class="mx-2"  src="${url_gb}/assets/image/logo/facebook.png">
+
+                                            <a class="mx-2"><img src="${url_gb}/assets/image/logo/facebook.png" alt="Share on Facebook"
+                                            onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('${window.location.href}'),'facebook-share-dialog','width=626,height=436'); return false;" />
+                                            </a>
                                         </td>
                                         <td>
-                                            <img class="mx-2"  src="${url_gb}/assets/image/logo/line.png">
+                                            <a  class="mx-2" href="https://social-plugins.line.me/lineit/share?url=${URL_share_line}" target="_blank">
+                                            <img src="${url_gb}/assets/image/logo/line.png" class="img-fluid px-1" />
+                                        </a>
                                         </td>
                                     </tr>
                                 </table>
@@ -85,8 +99,14 @@ $(() => {
                 loop:true,
                 slideMargin: 0,
                 thumbItem: 9,
-                enableDrag : true,
-                responsive: true
+                // enableDrag : true,
+                // responsive: true,
+                onSliderLoad: function() {
+
+                $("img").addClass("preferredHeight");
+                $("#lightSlider").css("height","380px");
+                }
+
             });
 
             $('#show_detail_1').html(show_detail);
@@ -124,7 +144,7 @@ $(() => {
 
                 other_product += `
                     <div class="col-lg-3 col-md-6 col-6 content">
-                        <a href="{{url('product_detail')}}">
+                        <a href="${product.product_id}">
                             <div class="img-hover-zoom">
                                 <img class="w-100 img" style="height:255px;"  src="${img_other}" onerror="this.src='${url_gb}/assets/uploads/images/no-image.jpg';" >
                             </div>
