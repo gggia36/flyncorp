@@ -26,7 +26,9 @@ $(() => {
 
                     img += `
                             <li data-thumb="${url_gb}/uploads/Product/${image.product_image}" >
-                                <img class="" src="${url_gb}/uploads/Product/${image.product_image}" />
+                                <div style="display:flex; align-items: center; height:100%;">
+                                    <img class="" src="${url_gb}/uploads/Product/${image.product_image}" />
+                                <div>
                             </li>
                 `;
                 });
@@ -105,6 +107,7 @@ $(() => {
 
                 $("img").addClass("preferredHeight");
                 $("#lightSlider").css("height","380px");
+
                 }
 
             });

@@ -42,45 +42,45 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $input_all = $request->all();
+            $input_all = $request->all();
 
-        $validator = Validator::make($request->all(), [
-
-            ]);
-
-            if (!$validator->fails()) {
+            $category = Category::where('category_name',$request->category['category_name'])->first();
+            if($category){
+                $return['content'] = 'Unsuccess';
+                $return['status'] = 2;
+                $return['title'] = "Category name Repeat text!";
+                return $return;
+            }
                 \DB::beginTransaction();
                 try {
                         $Category = new Category;
                         $Category->category_name = $input_all['category']['category_name'];
                         $Category->category_description = $input_all['category']['category_description'];
                         $Category->category_status = $input_all['category']['category_status'];
-
                         if(isset($input_all['category']['category_image'])){
                             $banner_file_segments = explode('/',$input_all['category']['category_image']);
                             $banner_file_name = end($banner_file_segments);
                             $Category->category_image = $banner_file_name;
                         }
 
-                    $Category->save();
-                    \DB::commit();
-                    $return['status'] = 1;
-                    $return['content'] = 'Success';
+                    if($Category->save()){
+                        \DB::commit();
+                        $return['status'] = 1;
+                        $return['content'] = 'Success';
+                        return $return;
+                    }else{
+                        $return['status'] = 0;
+                        $return['content'] = 'Unsuccess';
+                        $return['title'] = 'Insert';
+                        return $return;
+                    }
                 } catch (Exception $e) {
                     \DB::rollBack();
                     $return['status'] = 0;
                     $return['content'] = 'Unsuccess';
+                    $return['title'] = 'Insert';
+                    return $return;
                 }
-            }else{
-                $failedRules = $validator->failed();
-                $return['content'] = 'Unsuccess';
-                if(isset($failedRules['ads_zone']['required'])) {
-                    $return['status'] = 2;
-                    $return['title'] = "ads zone is required";
-                }
-            }
-            $return['title'] = 'Insert';
-            return $return;
     }
 
     /**

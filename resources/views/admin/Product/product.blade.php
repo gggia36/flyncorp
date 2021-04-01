@@ -193,9 +193,8 @@
         </div>
     </div>
 
-
-
-@endsection @section('modal')
+@endsection
+@section('modal')
 <div id="ModalAdd" class="modal fade"  aria-labelledby="primary-header-modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -203,7 +202,9 @@
                 <h4 class="modal-title text-black-50 " id="primary-header-modalLabel ">Add</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="FormAdd" class="mb-0">
+            <input type="hidden" id="default_image_src" value="{{ asset('assets/uploads/images/no-image.jpg') }}">
+
+            <form id="FormAdd" class="mb-0 needs-validation" novalidate>
                 <div class="modal-body">
                     <div class="form-horizontal form-upload">
                         <div class="row">
@@ -217,17 +218,18 @@
                             </div>
                             <div class="col-sm-6 mb-2">
                                 <label for="add_product_name" class="control-label col-form-label text-center">Product Name:</label>
-                                <input type="text" class="form-control" id="add_product_name" name="product[product_name]" placeholder="Product Name">
+                                <input type="text" class="form-control" id="add_product_name" name="product[product_name]" placeholder="Product Name" required>
+
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 mb-2">
                                 <label for="add_product_size" class="control-label col-form-label text-center">Product Size:</label>
-                                <input type="text" class="form-control" id="add_product_size" name="product[product_size]" placeholder="Product Size">
+                                <input type="text" class="form-control" id="add_product_size" name="product[product_size]" placeholder="Product Size" required>
                             </div>
                             <div class="col-sm-6 mb-2">
                                 <label for="add_product_price" class="control-label col-form-label text-center">Product Price:</label>
-                                <input type="text" class="form-control number-only" id="add_product_price" name="product[product_price]" placeholder="Product Price">
+                                <input type="text" class="form-control number-only" id="add_product_price" name="product[product_price]" placeholder="Product Price" required>
                             </div>
                         </div>
                         <div class="row mb-3" id="upload_img">
@@ -309,7 +311,7 @@
                 <div class="card-footer">
                     <div class="form-group text-center mb-0">
                         <button type="submit" class="btn btn-lg btn-success">Save</button>
-                        <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-lg btn-secondary"  data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
                 {{-- <div class="modal-footer">
@@ -438,7 +440,7 @@
                 <div class="card-footer">
                     <div class="form-group text-center mb-0">
                         <button type="submit" class="btn btn-lg btn-success">Save</button>
-                        <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-lg btn-secondary"  data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
                 {{-- <div class="modal-footer">
@@ -549,8 +551,8 @@
                 </div>
                 <div class="card-footer">
                     <div class="form-group text-center mb-0">
-                        <button type="submit" class="btn btn-lg btn-success">Save</button>
-                        <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
+                        {{-- <button type="submit" class="btn btn-lg btn-success">Save</button> --}}
+                        <button type="button" class="btn btn-lg btn-secondary"  data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
                 {{-- <div class="modal-footer">
@@ -562,13 +564,13 @@
         </div>
     </div>
 </div>
+@endsection
 @section('script')
     <script src="{{ asset('assets/js/admin/product.js') }}"></script>
-    {{-- <script>
+     <script>
         const isLogin = sessionStorage.getItem('session_login');
-        console.log(isLogin)
         if(!isLogin || isLogin === '0'){
             window.location.href = `{{url('admin/login')}}`
         }
-    </script> --}}
+    </script>
 @endsection

@@ -20,6 +20,10 @@
 	<link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">
 	<link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet">
     @yield('metaOg')
+    <script src="{{asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{asset('assets/bootstrap4/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{asset('assets/vender/aos/aos.js')}}"></script>
+    <script src="{{asset('assets/vender/lightslider-master/dist/js/lightslider.js')}}"></script>
 
     {{-- @include('layouts.metaOg') --}}
 
@@ -36,10 +40,6 @@
 @include('layouts.footer')
 
 
-<script src="{{asset('assets/js/jquery.min.js') }}"></script>
-<script src="{{asset('assets/bootstrap4/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{asset('assets/vender/aos/aos.js')}}"></script>
-<script src="{{asset('assets/vender/lightslider-master/dist/js/lightslider.js')}}"></script>
 <script src="{{asset('assets/js/navbar.js') }}"></script>
 <script src="{{asset('assets/js/slide.js') }}"></script>
 

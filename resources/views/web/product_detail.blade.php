@@ -32,6 +32,7 @@
   float: left;
   margin-right: 6px;
   cursor: pointer;
+  height: 100%;
 }
 
 #lightSlider img {
@@ -63,7 +64,7 @@
     <div class="container ">
         <div class="row">
             <div class="col-md-12 fix-mt-product ">
-            	<a class="color-565" href="{{url('product')}}"><i class="fas fa-angle-left color-565"></i> กลับหน้ารวมสินค้า</a>
+            	<a class="color-565" href="{{url('category/')}}/{{$product_detail->category_id}}"><i class="fas fa-angle-left color-565"></i> กลับหน้ารวมสินค้า</a>
             </div>
         </div>
         <div class="row mt-5">

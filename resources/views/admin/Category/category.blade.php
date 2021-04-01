@@ -94,14 +94,12 @@
                                                 <th>Created</th>
                                                 <th>Updated</th>
                                                 <th>Actions</th>
-
                                             </tr>
                                         </thead>
                                     </table>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -164,7 +162,7 @@
                 <div class="card-footer">
                     <div class="form-group text-center mb-0">
                         <button type="submit" class="btn btn-lg btn-success">Save</button>
-                        <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-lg btn-secondary"  data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             {{-- <div class="modal-footer">
@@ -233,7 +231,7 @@
                 <div class="card-footer">
                     <div class="form-group text-center mb-0">
                         <button type="submit" class="btn btn-lg btn-success">Save</button>
-                        <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-lg btn-secondary"  data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </form>
@@ -289,7 +287,7 @@
                 <div class="card-footer">
                     <div class="form-group text-center mb-0">
                         <button type="submit" class="btn btn-lg btn-success">Save</button>
-                        <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-lg btn-secondary"  data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </form>
