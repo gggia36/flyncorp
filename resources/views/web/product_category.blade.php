@@ -4,7 +4,7 @@
         <div class="row text-center">
             <div class="col-md-12 fix-mt-product">
                 <h1 class="text-uppercase fix-font text-blue mb-3 f-bold">PRODUCTS</h1>
-                <p>รายการไม้บันไดยางพาราประสานสำเร็จรูป (ขนาดมาตรฐานที่ใช้ทั่วไป)</p>
+                {{-- <p>รายการไม้บันไดยางพาราประสานสำเร็จรูป (ขนาดมาตรฐานที่ใช้ทั่วไป)</p> --}}
             </div>
         </div>
         <div class="row my-5 py-5" id="show_category">

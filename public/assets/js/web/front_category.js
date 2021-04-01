@@ -10,7 +10,7 @@ $(() => {
 
                 html += `
                         <div class="col-md-6 card-p-y ">
-                            <img class="w-75 "  src="uploads/Category/${category.category_image}">
+                            <img class="w-75 "  src="uploads/Category/${category.category_image}" onerror="this.src='${url_gb}/assets/uploads/images/no-image.jpg';">
                             <div class="mt-5 text-left">
                                 <h2 class="text-blue mb-3">${category.category_name}</h2>
                                 <label class="line-height-30">${category.category_description}</label>

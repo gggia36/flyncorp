@@ -34,8 +34,27 @@ class FrontWebController extends Controller
 
     public function get_data_category_details(Request $request,$id)
     {
-        return Product::where('category_id',$id)->where('product_status',1)->with(['Product_Image'])
-        ->orderBy('created_at', 'DESC')->get();
+        if($request->filter == 1){
+            return Product::where('category_id',$id)->where('product_status',1)->with(['Product_Image'])
+            ->orderBy('created_at', 'DESC')->get();
+
+        }if($request->filter == 2){
+            return Product::where('category_id',$id)->where('product_status',1)->with(['Product_Image'])
+            ->orderBy('product_price', 'DESC')->get();
+
+        }if($request->filter == 3){
+            return Product::where('category_id',$id)->where('product_status',1)->with(['Product_Image'])
+            ->orderBy('product_price', 'ASC')->get();
+
+        }
+
+
+
+        else{
+            return Product::where('category_id',$id)->where('product_status',1)->with(['Product_Image'])
+            ->orderBy('created_at', 'DESC')->get();
+        };
+
     }
 
 
