@@ -43,7 +43,6 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
             $input_all = $request->all();
-
             $category = Category::where('category_name',$request->category['category_name'])->first();
             if($category){
                 $return['content'] = 'Unsuccess';
@@ -55,6 +54,7 @@ class CategoryController extends Controller
                 try {
                         $Category = new Category;
                         $Category->category_name = $input_all['category']['category_name'];
+                        $Category->category_short_description = $input_all['category']['category_short_description'];
                         $Category->category_description = $input_all['category']['category_description'];
                         $Category->category_status = $input_all['category']['category_status'];
                         if(isset($input_all['category']['category_image'])){
@@ -130,6 +130,7 @@ class CategoryController extends Controller
                         $Category->category_name = $input_all['category']['category_name'];
                         $Category->category_description = $input_all['category']['category_description'];
                         $Category->category_status = $input_all['category']['category_status'];
+                        $Category->category_short_description = $input_all['category']['category_short_description'];
 
                         if(isset($input_all['category']['category_image'])){
                             $banner_file_segments = explode('/',$input_all['category']['category_image']);

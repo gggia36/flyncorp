@@ -11,18 +11,39 @@ class FrontWebController extends Controller
 {
     public function show_all_category(Request $request)
     {
-        return Category::get();
+        return view('web.product_category');
+
         // $content = Category::find($id);
         // $return['status'] = 1;
         // $return['title'] = 'Get Catgory';
         // $return['content'] = $content;
         // return $return;
     }
-
-    public function show_category_details(Request $request,$id)
+    public function get_data_all_category(Request $request)
     {
-        $data['Product'] = Product::where('category_id',$id)->orderBy('created_at', 'desc')->get();
+        return Category::where('category_status',1)->orderBy('created_at', 'DESC')->get();
+    }
+
+    public function show_category_details(Request $request, $id, $filter_type = '')
+    {
+        $data['filter_type'] = $filter_type;
         $data['cate_product'] = Category::where('category_id', $id)->first();
+        if($filter_type == 1 || !$filter_type){
+            $data['Product'] = Product::where('category_id',$id)->where('product_status',1)->with(['Product_Image' => function($query){
+                $query->select('product_image_id','product_id','product_image','sort')->where('sort', 1);
+            }])
+            ->orderBy('created_at', 'DESC')->paginate(3);
+        }else if($filter_type == 2){
+            $data['Product'] = Product::where('category_id',$id)->where('product_status',1)->with(['Product_Image' => function($query){
+                $query->select('product_image_id','product_id','product_image','sort')->where('sort', 1);
+            }])
+            ->orderBy('product_price', 'DESC')->paginate(3);
+        }else if($filter_type == 3){
+            $data['Product'] = Product::where('category_id',$id)->where('product_status',1)->with(['Product_Image' => function($query){
+                $query->select('product_image_id','product_id','product_image','sort')->where('sort', 1);
+            }])
+            ->orderBy('product_price', 'ASC')->paginate(3);
+        }
         return view('web.product', $data);
     }
     public function show_category_details_product(Request $request,$id)

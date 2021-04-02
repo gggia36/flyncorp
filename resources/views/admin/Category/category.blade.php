@@ -127,6 +127,13 @@
                             </div>
                         </div>
                         <div class="form-group row pb-3">
+                            <label for="add_category_short_description"
+                                class="col-sm-4 control-label col-form-label text-center">Short Description:</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="add_category_short_description" name="category[category_short_description]" rows="4" placeholder="Short Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row pb-3">
                             <label for="add_category_description"
                                 class="col-sm-4 control-label col-form-label text-center">Description:</label>
                             <div class="col-sm-8">
@@ -193,6 +200,13 @@
                                 class="col-sm-4 control-label col-form-label text-center">Name Category:</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" id="edit_category_name" name="category[category_name]"  placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="form-group row pb-3">
+                            <label for="edit_category_short_description"
+                                class="col-sm-4 control-label col-form-label text-center">Short Description:</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="edit_category_short_description" name="category[category_short_description]" rows="4" placeholder="Short Description"></textarea>
                             </div>
                         </div>
                         <div class="form-group row pb-3">

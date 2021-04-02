@@ -35,43 +35,15 @@ $(() => {
             },
         ],
         "select": true,
-        "dom": 'Bfrtip',
-        "lengthMenu": [
+        lengthMenu: [
             [10, 25, 50, -1],
             ['10 rows', '25 rows', '50 rows', 'Show all']
         ],
+        "lengthChange": true,
         "columnDefs": [{
             className: 'noVis',
             visible: false
         }],
-        "buttons": [
-            'pageLength',
-            {
-                extend: 'copy',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            {
-                extend: 'csv',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            {
-                extend: 'excel',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-
-            {
-                extend: 'pdf',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            }
-        ],
         processing: true,
         serverSide: true,
         responsive: true,
@@ -159,6 +131,7 @@ $(() => {
                     $('#edit_category_name').val(data.category_name);
                     $('#edit_category_description').val(data.category_description);
                     $('#edit_category_status').val(data.category_status);
+                    $('#edit_category_short_description').val(data.category_short_description);
 
                         if(data.category_image){
                             var html = '<img src=" '+url_gb+'/uploads/Category/' +data.category_image+'"  class="img-thumbnail" style="width:85%;max-height: 320px; " /> ';

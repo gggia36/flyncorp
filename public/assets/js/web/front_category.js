@@ -1,7 +1,12 @@
 $(() => {
-
+    var loading = `
+    <div class="spinner-border text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    `;
+$('#show_category').html(loading);
     $.ajax({
-        url: url_gb + "/category",
+        url: url_gb + "/category-data",
         type: 'GET',
         dataType: 'json',
         success: (response) => {

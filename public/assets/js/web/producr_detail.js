@@ -3,6 +3,12 @@ $(() => {
     const URL_share_line = escape(URL_href);
     // alert('as');
     var Idproduct = $('#product_id').val();
+    var loading = `
+                <div class="spinner-border text-secondary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                `;
+    $('#slide_img').html(loading);
     $.ajax({
         url: url_gb + "/product-data/"+Idproduct,
         type: 'GET',
@@ -12,8 +18,6 @@ $(() => {
             let html = '';
             let show_detail = '';
             let show_detail_description = '';
-            var numbers = [4, 2, 5, 1, 3];
-
 
 
             response.map((product, idx) => {
@@ -27,7 +31,7 @@ $(() => {
                     img += `
                             <li data-thumb="${url_gb}/uploads/Product/${image.product_image}" >
                                 <div style="display:flex; align-items: center; height:100%;">
-                                    <img class="" src="${url_gb}/uploads/Product/${image.product_image}" />
+                                    <img class="" src="${url_gb}/uploads/Product/${image.product_image}" onerror="this.src='${url_gb}/assets/uploads/images/no-image.jpg';"/>
                                 <div>
                             </li>
                 `;
@@ -82,7 +86,7 @@ $(() => {
                     <div class="col-md-12 ">
                         <h5 class="text-blue mb-4">Product Description</h5>
                         <div class="line-height-30">
-                            ${product.product_description}
+                            ${product.product_description ? product.product_description : '-'}
                         </div>
                     </div>
 
@@ -105,7 +109,7 @@ $(() => {
                 // responsive: true,
                 onSliderLoad: function() {
 
-                $("img").addClass("preferredHeight");
+                $("#lightSlider img").addClass("preferredHeight");
                 $("#lightSlider").css("height","380px");
 
                 }

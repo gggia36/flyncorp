@@ -10,7 +10,7 @@
           <a class="nav-link {{ Request::segment(1) === '/' ? 'active'  : null }}" aria-current="page" href="{{url('/')}}">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::segment(1) === 'product_category' ? 'active' : null }}" href="{{url('product_category')}}">PRODUCT</a>
+          <a class="nav-link {{ Request::segment(1) === 'product_category' ? 'active' : null }}" href="{{url('category')}}">PRODUCT</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::segment(1) === 'about' ? 'active' : null }}" href="{{url('about')}}">ABOUT US</a>
@@ -36,7 +36,7 @@
 <div id="modal_drawer_right" class="modal fixed-right fade" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-dialog-aside" role="document">
     <div class="modal-content">
-            <div class="modal-header">              
+            <div class="modal-header">
                 <div class="avatar"></div>
                 <div class="text">
                      <a class="navbar-brand" href="{{url('/')}}"><img class="w-50 ml-3" src="{{asset('assets/image/logo/logo_flyn.svg')}}" alt="Flyncorp Icon"></a>
@@ -57,9 +57,9 @@
                   <a class="nav-link" href="{{url('contact')}}">CONTACT US</a>
             </li>
         </ul>
-      </div>   
+      </div>
     </div>
-  </div> 
+  </div>
 </div>
 
 

@@ -21,6 +21,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/test', 'HomeController@test');
 
 Route::get('product_category', 'ProductController@ProductCategory');
+
 Route::get('about', 'HomeController@About');
 Route::get('contact', 'HomeController@Contact');
 Route::get('product', 'ProductController@Product');
@@ -28,7 +29,10 @@ Route::get('product_detail', 'ProductController@ProductDetail');
 
 //---view--
 Route::get('/category', 'Web\FrontWebController@show_all_category');
+Route::get('/category-data', 'Web\FrontWebController@get_data_all_category');
+
 Route::get('/category/{id}', 'Web\FrontWebController@show_category_details');
+Route::get('/category/{id}/filter/{filter_type}', 'Web\FrontWebController@show_category_details');
 Route::get('/category/{id}/product/{id_product}', 'Web\FrontWebController@show_category_details_product_details');
 
 //-----date----
