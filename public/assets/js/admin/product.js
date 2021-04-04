@@ -148,10 +148,11 @@ $('body').on('change', '#upload_img input.upload-product-img', function() {
     var ele = $(this);
     var numid = ele.data('index');
 
-
+    $('#add_delete_img_'+numid).removeClass('d-none');
     var formData = new FormData();
     formData.append('file', ele[0].files[0]);
     $('#add_preview_img_product_'+numid).attr('src', URL.createObjectURL(event.target.files[0]));
+
     // readURL(ele[0]);
     $.ajax({
         url: url_gb + '/admin/UploadImage/Product',
@@ -160,16 +161,53 @@ $('body').on('change', '#upload_img input.upload-product-img', function() {
         processData: false, // tell jQuery not to process the data
         contentType: false, // tell jQuery not to set contentType
         success: function(res) {
-            ele.closest('#upload_img').find('.upload-product-img').append(
+
+            ele.closest('#upload_img').find('#uploadFile'+numid).append(
                 '<input type="hidden" id="add_product_img_'+numid+'"  name="product_image['+numid+'][product_image]" value="' + res.path + '">',
                 '<input type="hidden" id="add_product_sort_'+numid+'"  name="product_image['+numid+'][sort]" value="' + numid + '">'
 
                 );
+            $('#add_delete_img_'+numid).append('<span onclick="clickDelete(\'' + res.path + '\',\''+numid+'\')" class="badge badge-pill text-white" style="background-color: red;" >Delete img  </span>');
 
             setTimeout(function() {}, 100);
         }
     });
 });
+
+function clickDelete(respath,numid) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        // icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                method: "DELETE",
+                url: url_gb+'/admin/UploadImage/Product',
+                data: {
+                    id : numid,
+                    file_name : respath,
+                    // admin_id : $('#admin_id').val(),
+                    // menu : $('#data_log_menu').val(),
+                }
+            }).done(function(res) {
+                // Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
+                // window.location.reload()
+                $('#add_preview_img_product_'+numid).attr('src', url_gb+'/assets/uploads/images/no-image.jpg');
+                $('#add_delete_img_'+numid).addClass('d-none');
+
+            }).fail(function(res) {
+                // resetButton(form.find('button[type=submit]'));
+                Swal.fire("โอ๊ะโอ! เกิดข้อผิดพลาด", res.content, 'error');
+            });
+
+        }
+    });
+}
 
 
 $('body').on('change', '#edit-upload_img input.edit-upload-product-img', function() {
@@ -199,7 +237,6 @@ $('body').on('change', '#edit-upload_img input.edit-upload-product-img', functio
         }
     });
 });
-
 
 
 
@@ -243,7 +280,7 @@ $('body').on('click','.btn-edit',function(data){
                             var img = '';
                             if(v.product_image){
                                 img += ((v.product_image ) ? url_gb+'/uploads/Product/'+v.product_image : url_gb+'/assets/uploads/images/no-image.jpg');
-                                html += '<img src="'+img+'"  class="img-thumbnail" style="max-width:100%; max-height: 220px;" /> ';
+                                html += `<img src="${img}"  class="img-thumbnail" style="max-width:100%; max-height: 220px;" onerror="this.src='${url_gb}/assets/uploads/images/no-image.jpg';"  />`
                                 $('#edit_product_image_'+v.sort).html(html);
                                 if(v.product_image_id){
                                     $('input#edit-uploadFile'+v.sort).attr('data-image-id', v.product_image_id );

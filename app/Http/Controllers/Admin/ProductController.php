@@ -340,4 +340,24 @@ class ProductController extends Controller
         return $return;
     }
 
+    public function Delete_img(Request $request)
+    {
+        return $request;
+        // \DB::beginTransaction();
+        // try {
+        //     $Product = Product::find($id);
+        //     $Product->product_status = $request->input('status');
+        //     $Product->save();
+        //     \DB::commit();
+        //     $return['status'] = 1;
+        //     $return['content'] = 'Success';
+        // } catch (Exception $e) {
+        //     \DB::rollBack();
+        //     $return['status'] = 0;
+        //     $return['content'] = 'Unsuccess';
+        // }
+        // $return['title'] = 'Update Status';
+        // return $return;
+    }
+
 }

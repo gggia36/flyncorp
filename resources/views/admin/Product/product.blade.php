@@ -209,7 +209,7 @@
                     <div class="form-horizontal form-upload">
                         <div class="row">
                             <div class="col-sm-6 mb-2">
-                                <label for="add_category_name" class="control-label col-form-label">Category:</label>
+                                <label for="add_category_name" class="control-label col-form-label">Category</label>
                                 <select class="form-control" id="select2-search-hide" name="product[category_id]" style="width: 100%; height:36px;">
                                     @foreach ($Category as $item)
                                         <option value="{{ $item->category_id }}">{{ $item->category_name }}</option>
@@ -217,41 +217,45 @@
                                 </select>
                             </div>
                             <div class="col-sm-6 mb-2">
-                                <label for="add_product_name" class="control-label col-form-label text-center">Product Name:</label>
+                                <label for="add_product_name" class="control-label col-form-label text-center">Product Name*</label>
                                 <input type="text" class="form-control" id="add_product_name" name="product[product_name]" placeholder="Product Name" required>
 
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 mb-2">
-                                <label for="add_product_size" class="control-label col-form-label text-center">Product Size:</label>
+                                <label for="add_product_size" class="control-label col-form-label text-center">Product Size*</label>
                                 <input type="text" class="form-control" id="add_product_size" name="product[product_size]" placeholder="Product Size" required>
                             </div>
                             <div class="col-sm-6 mb-2">
-                                <label for="add_product_price" class="control-label col-form-label text-center">Product Price:</label>
+                                <label for="add_product_price" class="control-label col-form-label text-center">Product Price*</label>
                                 <input type="text" class="form-control number-only" id="add_product_price" name="product[product_price]" placeholder="Product Price" required>
                             </div>
                         </div>
                         <div class="row mb-3" id="upload_img">
                             @for ($i = 1; $i < 7; $i++)
-                                <div class="col-sm-4 main_web_logo mb-2 mt-2" onclick="clickUpload(this,'#uploadFile{{$i}}')"  style="max-width:100%; height: 220px;">
-                                    <div class=" mb-2 text-center div_preview_product" id="div_preview_img_product_{{$i}}" img-preview="{{$i}}" >
-                                        <img class="img-thumbnail" id="add_preview_img_product_{{$i}}" style="max-width:100%; max-height: 220px;" src="{{ asset('assets/uploads/images/no-image.jpg') }}">
-                                        <div class="text-inbox-center" id="image_placeholder_{{$i}}">
-                                            <i class="fas fa-plus-circle set-icon "> {{$i}}</i>
-                                            {{-- <p class="text-center text-white">{{$i}}</p> --}}
+
+                                <div class="col-sm-4 main_web_logo mt-3"   style="max-width:100%; height: 220px; ">
+                                    <div  id="add_delete_img_{{$i}}"  class="d-none " style="text-align:right;" >
+                                    </div>
+                                    <div class="col-sm-12 main_web_logo mt-3"  onclick="clickUpload(this,'#uploadFile{{$i}}')"  style="max-width:100%; height: 220px; ">
+                                        <div class=" text-center div_preview_product" id="div_preview_img_product_{{$i}}" img-preview="{{$i}}" >
+                                            <img class="img-thumbnail" id="add_preview_img_product_{{$i}}" style="max-width:100%; max-height: 220px;" src="{{ asset('assets/uploads/images/no-image.jpg') }}">
+                                            <div class="text-inbox-center" id="image_placeholder_{{$i}}">
+                                                <i class="fas fa-plus-circle set-icon "> {{$i}}</i>
+                                                {{-- <p class="text-center text-white">{{$i}}</p> --}}
+                                            </div>
                                         </div>
                                     </div>
-
+                                    <input type="file" class="form-control upload-product-img d-none" type="file" id="uploadFile{{$i}}" name="image{{$i}}"  data-index="{{$i}}" accept="image/*">
                                 </div>
-                                <input type="file" class="form-control upload-product-img d-none" type="file" id="uploadFile{{$i}}" name="image{{$i}}"  data-index="{{$i}}" accept="image/*">
                             @endfor
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-sm-12">
                                 <label for="add_product_price"
-                                class="control-label col-form-label text-center">Product Details:</label>
+                                class="control-label col-form-label text-center">Product Details</label>
                                 <?php
                                     $content_textarea_id = 'add_product_content';
                                     $content_textarea_name = 'product[product_description]';
@@ -338,7 +342,7 @@
 
                         <div class="row">
                             <div class="col-sm-6 mb-2">
-                                <label for="edit_category_name" class="control-label col-form-label">Category:</label>
+                                <label for="edit_category_name" class="control-label col-form-label">Category</label>
                                 <select class="form-control" id="edit_product_category" name="product[category_id]" style="width: 100%; height:36px;">
                                     @foreach ($Category as $item)
                                         <option value="{{ $item->category_id }}">{{ $item->category_name }}</option>
@@ -346,17 +350,17 @@
                                 </select>
                             </div>
                             <div class="col-sm-6 mb-2">
-                                <label for="edit_product_name" class="control-label col-form-label text-center">Product Name:</label>
+                                <label for="edit_product_name" class="control-label col-form-label text-center">Product Name*</label>
                                 <input type="text" class="form-control" id="edit_product_name" name="product[product_name]" placeholder="Product Name">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 mb-2">
-                                <label for="edit_product_size" class="control-label col-form-label text-center">Product Size:</label>
+                                <label for="edit_product_size" class="control-label col-form-label text-center">Product Size*</label>
                                 <input type="text" class="form-control" id="edit_product_size" name="product[product_size]" placeholder="Product Size">
                             </div>
                             <div class="col-sm-6 mb-2">
-                                <label for="edit_product_price" class="control-label col-form-label text-center">Product Price:</label>
+                                <label for="edit_product_price" class="control-label col-form-label text-center">Product Price*</label>
                                 <input type="text" class="form-control number-only" id="edit_product_price" name="product[product_price]" placeholder="Product Price">
                             </div>
                         </div>
@@ -380,7 +384,7 @@
                         <div class="row mb-3">
                             <div class="col-sm-12">
                                 <label for="edit_product_price"
-                                class="control-label col-form-label text-center">Product Details:</label>
+                                class="control-label col-form-label text-center">Product Details</label>
                                 <?php
                                     $content_textarea_id = 'edit_product_content';
                                     $content_textarea_name = 'product[product_description]';

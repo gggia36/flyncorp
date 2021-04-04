@@ -54,7 +54,7 @@ $(() => {
                             <h2 class="text-blue mb-3">${product.product_name}</h2>
                             <small>${product.product_size}</small>
                             <br><br>
-                            <p class="text-blue">฿ ${product.product_price}</p>
+                            <p class="text-blue">฿ ${product.product_price ? product.product_price.toLocaleString() : ''}</p>
                             <br><br><br><br>
                             <div>
                                 <table>

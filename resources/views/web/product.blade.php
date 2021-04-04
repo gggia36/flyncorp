@@ -52,7 +52,9 @@
                             <h5 class="fixed-text-1 text-blue">{{$product->product_name}}</h5>
                             <small class="color-888">{{$product->product_size}}</small>
                             <br><br>
-                            <p class="text-blue">฿ {{$product->product_price}} </p>
+                            {{-- <p class="text-blue">฿ {{$product->product_price}} </p> --}}
+                            <p class="text-blue">฿ {{number_format($product->product_price)}} </p>
+
                         </div>
                     </a>
                 </div>

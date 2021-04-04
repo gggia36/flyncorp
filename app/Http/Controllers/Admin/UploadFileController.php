@@ -10,6 +10,22 @@ use Illuminate\Support\Arr;
 
 class UploadFileController extends Controller
 {
+
+
+    public function DeleteUploadFile(Request $request, $folder)
+	{
+        // return $request;
+		// $file_name = $request->file_name;
+        $file_name_segments = explode('/',$request->file_name);
+        $file_name = end($file_name_segments);
+
+		$url_temp = public_path('uploads/' . $folder);
+
+		unlink($url_temp . '/' . $file_name);
+		return 'success';
+	}
+
+
     public function UploadImage(Request $request, $folder)
 	{
         if($request->file === 'undefined'){

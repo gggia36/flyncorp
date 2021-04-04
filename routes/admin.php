@@ -10,8 +10,14 @@ Route::group(['middleware' => []],function () {
     Route::post('/category/lists', 'Admin\CategoryController@lists');
     Route::post('/category/ChangeStatus/{id}', 'Admin\CategoryController@ChangeStatus');
     Route::resource('product', 'Admin\ProductController');
+    // Route::post('/delete/img/product', 'Admin\ProductController@Delete_img');
+
     Route::post('/product/lists', 'Admin\ProductController@lists');
     Route::post('/product/ChangeStatus/{id}', 'Admin\ProductController@ChangeStatus');
     Route::post('UploadImage/{folder}','Admin\UploadFileController@UploadImage');
+    Route::delete('UploadImage/{folder}','Admin\UploadFileController@DeleteUploadFile');
+
     Route::post('UploadImageEditor/{folder}','Admin\UploadFileEditorController@UploadImage');
+
+
 });

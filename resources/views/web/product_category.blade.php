@@ -36,7 +36,7 @@
     <div class="container py-5 text-center">
         <div class="row py-5">
             <div class="col-md-12">
-                <button type="button" class="btn btn-primary btn-lg btn-product">ติดต่อสอบถามเพิ่มเติม</button>
+                <button type="button" onclick="location.href='contact'" class="btn btn-primary btn-lg btn-product">ติดต่อสอบถามเพิ่มเติม</button>
             </div>
         </div>
     </div>
